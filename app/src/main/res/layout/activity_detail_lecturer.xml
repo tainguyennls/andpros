@@ -118,19 +118,19 @@
            android:background="#fff"
            android:padding="30dp"
            android:layout_width="match_parent"
-           android:layout_height="wrap_content">
+           android:layout_height="match_parent">
 
            <LinearLayout
                android:orientation="vertical"
                android:paddingBottom="10dp"
                android:layout_width="match_parent"
-               android:layout_height="wrap_content">
+               android:layout_height="match_parent">
 
                <LinearLayout
                    android:paddingTop="10dp"
                    android:paddingBottom="10dp"
                    android:layout_width="wrap_content"
-                   android:layout_height="wrap_content">
+                   android:layout_height="match_parent">
                    <TextView
                        android:textStyle="bold"
                        android:layout_width="wrap_content"
@@ -141,45 +141,17 @@
                <LinearLayout
                    android:orientation="vertical"
                    android:layout_width="match_parent"
-                   android:layout_height="wrap_content">
-                    <LinearLayout
-                        android:paddingTop="5dp"
-                        android:paddingBottom="5dp"
-                        android:paddingLeft="15dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                        <TextView
-                            android:text="slsdsas"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-                    </LinearLayout>
-                   <LinearLayout
-                       android:paddingTop="5dp"
-                       android:paddingBottom="5dp"
-                       android:paddingLeft="15dp"
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content">
-                       <TextView
-                           android:text="slsdsas"
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content" />
-                   </LinearLayout>
-                   <LinearLayout
-                       android:paddingTop="5dp"
-                       android:paddingBottom="5dp"
-                       android:paddingLeft="15dp"
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content">
-                       <TextView
-                           android:text="slsdsas"
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content" />
-                   </LinearLayout>
+                   android:layout_height="match_parent">
+                   <ListView
+                       android:id="@+id/lv_topics"
+                       android:divider="@null"
+                       android:layout_width="wrap_content"
+                       android:layout_height="match_parent" />
                </LinearLayout>
 
                <!-- After -->
 
-               <LinearLayout
+<!--               <LinearLayout
                    android:paddingTop="10dp"
                    android:paddingBottom="10dp"
                    android:layout_width="wrap_content"
@@ -228,7 +200,7 @@
                            android:layout_width="wrap_content"
                            android:layout_height="wrap_content" />
                    </LinearLayout>
-               </LinearLayout>
+               </LinearLayout>-->
            </LinearLayout>
        </LinearLayout>
    </LinearLayout>

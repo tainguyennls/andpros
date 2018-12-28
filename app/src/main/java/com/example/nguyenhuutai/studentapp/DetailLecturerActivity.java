@@ -3,12 +3,15 @@ package com.example.nguyenhuutai.studentapp;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 
 import com.example.nguyenhuutai.studentapp.model.LecturerModel;
+import com.example.nguyenhuutai.studentapp.model.StringItem;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -25,7 +28,9 @@ public class DetailLecturerActivity extends AppCompatActivity {
     private TextView txtName,txtNamsinh,txtChucvu,txtEmail;
     private int id;
     private DatabaseReference df;
-    private List<String> topics;
+    private List<StringItem> topics;
+    private ListAdapter listAdapterTopics;
+    private ListView lv_Topics;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +45,7 @@ public class DetailLecturerActivity extends AppCompatActivity {
         txtNamsinh  = findViewById(R.id.dat);
         txtChucvu = findViewById(R.id.pos);
         txtEmail = findViewById(R.id.email);
+        lv_Topics = findViewById(R.id.lv_topics);
 
         Intent intent = getIntent();
 
@@ -70,7 +76,7 @@ public class DetailLecturerActivity extends AppCompatActivity {
     }
 
     public interface CallbackTopic{
-        void callback(List<String> topics);
+        void callback(List<StringItem> topics);
     }
 
     public void getLecturerById(final OnCallback onCallback){
@@ -99,7 +105,7 @@ public class DetailLecturerActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 DataSnapshot snapshot  = dataSnapshot.child("lecturers").child(id+"").child("topics");
                 for (DataSnapshot sh : snapshot.getChildren()){
-                    String topic = sh.getValue(String.class);
+                    StringItem topic = sh.getValue(StringItem.class);
                     topics.add(topic);
                 }
                 callback.callback(topics);
@@ -134,13 +140,12 @@ public class DetailLecturerActivity extends AppCompatActivity {
 
                getTopicsById(new CallbackTopic() {
                    @Override
-                   public void callback(List<String> topics) {
-                       //lecturerModels.setTopic(topics);
-                       Log.e("LECTURER","LEC: " + topics.toString());
+                   public void callback(List<StringItem> topics) {
+                       lecturerModels.setTopic(topics);
+                       listAdapterTopics = new ArrayAdapter<StringItem>(getBaseContext(),android.R.layout.simple_list_item_1,topics);
+                       lv_Topics.setAdapter(listAdapterTopics);
                    }
                });
-
-//               Log.e("LECTURER",lecturerModels.getTopic().size() + "");
            }
        });
     }

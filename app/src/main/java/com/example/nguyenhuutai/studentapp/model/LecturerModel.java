@@ -21,8 +21,8 @@ public class LecturerModel implements  Comparable<LecturerModel> {
     private java.lang.String position;
     private java.lang.String start;
     private java.lang.String image;
-    private List <String> topic;
-    private List <String> research;
+    private List <StringItem> topic;
+    private List <StringItem> research;
 
     private FirebaseStorage storage;
     private StorageReference storageRef;
@@ -89,19 +89,19 @@ public class LecturerModel implements  Comparable<LecturerModel> {
         this.image = image;
     }
 
-    public List<String> getTopic() {
+    public List<StringItem> getTopic() {
         return topic;
     }
 
-    public void setTopic(List<String> topic) {
+    public void setTopic(List<StringItem> topic) {
         this.topic = topic;
     }
 
-    public List<String> getResearch() {
+    public List<StringItem> getResearch() {
         return research;
     }
 
-    public void setResearch(List<String> research) {
+    public void setResearch(List<StringItem> research) {
         this.research = research;
     }
 
