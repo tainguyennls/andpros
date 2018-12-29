@@ -3,13 +3,12 @@ package com.example.nguyenhuutai.studentapp;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
 
+import com.example.nguyenhuutai.studentapp.adapters.ItemAdapter;
 import com.example.nguyenhuutai.studentapp.model.LecturerModel;
 import com.example.nguyenhuutai.studentapp.model.StringItem;
 import com.google.firebase.database.DataSnapshot;
@@ -29,7 +28,7 @@ public class DetailLecturerActivity extends AppCompatActivity {
     private int id;
     private DatabaseReference df;
     private List<StringItem> topics;
-    private ListAdapter listAdapterTopics;
+    private ItemAdapter itemTopics;
     private ListView lv_Topics;
 
     @Override
@@ -142,8 +141,10 @@ public class DetailLecturerActivity extends AppCompatActivity {
                    @Override
                    public void callback(List<StringItem> topics) {
                        lecturerModels.setTopic(topics);
-                       listAdapterTopics = new ArrayAdapter<StringItem>(getBaseContext(),android.R.layout.simple_list_item_1,topics);
-                       lv_Topics.setAdapter(listAdapterTopics);
+                       itemTopics = new ItemAdapter(DetailLecturerActivity.this,R.id.lv_topics,topics);
+                       lv_Topics.setAdapter(itemTopics);
+                       lv_Topics.setScrollContainer(false);
+                       lv_Topics.setClickable(false);
                    }
                });
            }
