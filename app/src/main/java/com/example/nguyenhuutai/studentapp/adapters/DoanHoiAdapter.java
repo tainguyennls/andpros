@@ -38,7 +38,7 @@ public class DoanHoiAdapter extends ArrayAdapter {
             DoanHoiModel models  = doanHoiModels.get(position);
 
             txtName.setText(models.getName());
-            txtDecscript.setText(models.getDescsipt());
+            txtDecscript.setText(models.getDescript());
         }
         return convertView;
     }

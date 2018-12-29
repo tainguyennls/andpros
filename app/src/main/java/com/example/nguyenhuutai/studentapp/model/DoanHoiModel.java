@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class DoanHoiModel implements Serializable {
 
     private String name;
-    private String descsipt;
+    private String descript;
 
     public DoanHoiModel(){
         // Empty constructor require...
@@ -19,11 +19,11 @@ public class DoanHoiModel implements Serializable {
         return name;
     }
 
-    public void setDescsipt(String descsipt) {
-        this.descsipt = descsipt;
+    public void setDescript(String descript) {
+        this.descript = descript;
     }
 
-    public String getDescsipt() {
-        return descsipt;
+    public String getDescript() {
+        return descript;
     }
 }

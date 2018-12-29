@@ -9,6 +9,7 @@ import android.widget.ListView;
 
 import com.example.nguyenhuutai.studentapp.adapters.DoanHoiAdapter;
 import com.example.nguyenhuutai.studentapp.model.DoanHoiModel;
+import com.example.nguyenhuutai.studentapp.view.DetailDoanHoiActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -33,14 +34,16 @@ public class DoanHoiActivity extends AppCompatActivity implements AdapterView.On
         df = FirebaseDatabase.getInstance().getReference().child("assocs");
         doanHoiModels = new ArrayList<>();
         lvDoanHoi = findViewById(R.id.association);
+        lvDoanHoi.setOnItemClickListener(this);
 
         render();
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Intent intent =  new Intent();
-        intent.putExtra("ass",doanHoiModels.get(position)+"");
+        Intent intent =  new Intent(DoanHoiActivity.this,DetailDoanHoiActivity.class);
+        intent.putExtra("name",doanHoiModels.get(position).getName());
+        intent.putExtra("descript",doanHoiModels.get(position).getDescript());
         startActivity(intent);
         overridePendingTransition(R.anim.slide_from_right,R.anim.slide_to_left);
     }
