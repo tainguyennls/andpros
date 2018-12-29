@@ -57,7 +57,7 @@ public class TrangChuFragment extends Fragment implements View.OnClickListener {
                 break;
 
             case R.id.dk:
-                startActivity(new Intent());
+                startActivity(new Intent(getActivity(),DoanHoiActivity.class));
                 getActivity().overridePendingTransition(R.anim.slide_from_right,R.anim.slide_to_left);
                 break;
 

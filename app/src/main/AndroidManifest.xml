@@ -21,9 +21,11 @@
         <activity android:name=".view.HomeScreen" />
         <activity
             android:name=".BottomNavigationActivity"
-            android:label="@string/title_activity_bottom_navigation"></activity>
+            android:label="@string/title_activity_bottom_navigation" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".DetailLecturerActivity"></activity>
+        <activity android:name=".DetailLecturerActivity" />
+        <activity android:name=".DoanHoiActivity" />
+        <activity android:name=".view.DetailDoanHoiActivity"></activity>
     </application>
 
 </manifest>
