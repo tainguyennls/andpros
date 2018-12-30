@@ -20,7 +20,7 @@
             android:layout_height="wrap_content" />
     </LinearLayout>
    <ScrollView
-       android:background="#eeeef3"
+       android:background="#f0f"
        android:layout_width="match_parent"
        android:layout_height="match_parent">
        <LinearLayout
@@ -29,7 +29,6 @@
            android:layout_height="match_parent">
            <TextView
                android:id="@+id/des"
-               android:layout_gravity="center"
                android:justificationMode="inter_word"
                android:layout_width="match_parent"
                android:layout_height="wrap_content" />

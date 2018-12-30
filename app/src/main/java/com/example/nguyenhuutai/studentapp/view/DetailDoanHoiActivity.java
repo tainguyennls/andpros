@@ -3,6 +3,7 @@ package com.example.nguyenhuutai.studentapp.view;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Layout;
 import android.widget.TextView;
 
 import com.example.nguyenhuutai.studentapp.R;
