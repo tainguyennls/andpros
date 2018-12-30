@@ -2,7 +2,7 @@ package com.example.nguyenhuutai.studentapp.model;
 
 import java.io.Serializable;
 
-public class DoanHoiModel implements Serializable {
+public class DoanHoiModel{
 
     private String name;
     private String descript;
