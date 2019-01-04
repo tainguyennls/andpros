@@ -25,7 +25,9 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".DetailLecturerActivity" />
         <activity android:name=".DoanHoiActivity" />
-        <activity android:name=".view.DetailDoanHoiActivity"></activity>
+        <activity android:name=".view.DetailDoanHoiActivity" />
+        <activity android:name=".DayHocActivity" />
+        <activity android:name=".DetailDayHocActivity"></activity>
     </application>
 
 </manifest>

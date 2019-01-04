@@ -36,6 +36,5 @@ public class DetailDoanHoiActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         finish();
-
     }
 }

@@ -26,8 +26,8 @@ public class SlashScreen extends AppCompatActivity  {
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_from_right,R.anim.slide_to_left);
             }
-        },5000);
-
+        },1000);
+// 5
     }
 }
 

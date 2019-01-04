@@ -15,8 +15,6 @@ public class TrangChuFragment extends Fragment implements View.OnClickListener {
 
     private LinearLayout llGV;
     private LinearLayout llDK;
-    private LinearLayout llDH;
-    private LinearLayout llHB;
     private LinearLayout llVL;
     private LinearLayout llTS;
 
@@ -33,15 +31,11 @@ public class TrangChuFragment extends Fragment implements View.OnClickListener {
 
         llGV = v.findViewById(R.id.gv);
         llDK = v.findViewById(R.id.dk);
-        llDH = v.findViewById(R.id.dh);
-        llHB = v.findViewById(R.id.hb);
         llVL = v.findViewById(R.id.vl);
         llTS = v.findViewById(R.id.ts);
 
         llGV.setOnClickListener(this);
         llDK.setOnClickListener(this);
-        llDH.setOnClickListener(this);
-        llHB.setOnClickListener(this);
         llVL.setOnClickListener(this);
         llTS.setOnClickListener(this);
 
@@ -61,23 +55,13 @@ public class TrangChuFragment extends Fragment implements View.OnClickListener {
                 getActivity().overridePendingTransition(R.anim.slide_from_right,R.anim.slide_to_left);
                 break;
 
-            case R.id.dh:
-                startActivity(new Intent());
-                getActivity().overridePendingTransition(R.anim.slide_from_right,R.anim.slide_to_left);
-                break;
-
-            case R.id.hb:
-                startActivity(new Intent());
-                getActivity().overridePendingTransition(R.anim.slide_from_right,R.anim.slide_to_left);
-                break;
-
             case R.id.vl:
                 startActivity(new Intent());
                 getActivity().overridePendingTransition(R.anim.slide_from_right,R.anim.slide_to_left);
                 break;
 
             case R.id.ts:
-                startActivity(new Intent());
+                startActivity(new Intent(getActivity(),DayHocActivity.class));
                 getActivity().overridePendingTransition(R.anim.slide_from_right,R.anim.slide_to_left);
                 break;
 
