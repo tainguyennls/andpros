@@ -1,10 +1,9 @@
 package com.example.nguyenhuutai.studentapp.adapters;
 
-import android.content.Context;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.example.nguyenhuutai.studentapp.model.NewsModel;
@@ -12,35 +11,44 @@ import com.example.nguyenhuutai.studentapp.R;
 
 import java.util.List;
 
-public class NewsAdapter extends ArrayAdapter<NewsModel> {
+public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
 
-    private Context context;
     private List<NewsModel> newsModels;
-    private TextView user,time,content;
 
-    public NewsAdapter(Context context, int resource,List<NewsModel> objects) {
-        super(context, resource, objects);
-        this.context= context;
+    public NewsAdapter(List<NewsModel> objects) {
         this.newsModels = objects;
     }
 
-    @Override
-    public View getView(int position, View convertView,ViewGroup parent) {
+    public class ViewHolder extends RecyclerView.ViewHolder{
 
-        if(convertView == null)
-        {
-            convertView = LayoutInflater.from(context).inflate(R.layout.news_item,parent,false);
-            user = convertView.findViewById(R.id.user_dis);
-            time = convertView.findViewById(R.id.timer_news);
-            content = convertView.findViewById(R.id.content_news);
+        TextView user,time,content;
 
-            NewsModel newsModel = newsModels.get(position);
-
-            user.setText(newsModel.getUser());
-            time.setText(newsModel.getTime());
-            content.setText(newsModel.getContent());
-
+        public ViewHolder(View itemView) {
+            super(itemView);
+            user = itemView.findViewById(R.id.user_dis);
+            time = itemView.findViewById(R.id.timer_news);
+            content = itemView.findViewById(R.id.content_news);
         }
-        return convertView;
+    }
+
+    @Override
+    public NewsAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.news_item,viewGroup,false);
+        ViewHolder viewHolder = new ViewHolder(v);
+        return viewHolder;
+    }
+
+    @Override
+    public void onBindViewHolder(NewsAdapter.ViewHolder viewHolder, int i) {
+        NewsModel newsModel = newsModels.get(i);
+
+        viewHolder.user.setText(newsModel.getUser());
+        viewHolder.time.setText(newsModel.getTime());
+        viewHolder.content.setText(newsModel.getContent());
+    }
+
+    @Override
+    public int getItemCount() {
+        return newsModels.size();
     }
 }
