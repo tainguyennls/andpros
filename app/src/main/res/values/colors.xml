@@ -5,4 +5,7 @@
     <color name="colorAccent">#D81B60</color>
     <color name="colorNoActionBar">#fff</color>
     <color name="background">#F0EFF5</color>
+    <color name="nav">#0274BD</color>
+    <color name="textWhite">#FFFFFF</color>
+    <color name="back_item">#FFFFFF</color>
 </resources>

@@ -9,7 +9,6 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.nguyenhuutai.studentapp.DetailLecturerActivity;
 import com.example.nguyenhuutai.studentapp.R;
 import com.example.nguyenhuutai.studentapp.adapters.ListAdapter;
 import com.example.nguyenhuutai.studentapp.model.LecturerModel;

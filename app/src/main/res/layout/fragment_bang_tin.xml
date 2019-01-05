@@ -4,12 +4,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#eeeef3"
-    tools:context=".BangTinFragment">
+    android:background="@color/background"
+    android:orientation="vertical"
+    tools:context=".view.BangTinFragment">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/lvNews"
+    <LinearLayout
+        android:gravity="center"
+        android:background="@color/nav"
+        android:keepScreenOn="true"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </android.support.v7.widget.RecyclerView>
+        android:layout_height="?attr/actionBarSize">
+        <TextView
+            android:textStyle="bold"
+            android:text="News"
+            android:textColor="@color/textWhite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_marginBottom="?attr/actionBarSize"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/lvNews"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </android.support.v7.widget.RecyclerView>
+    </LinearLayout>
 </LinearLayout>

@@ -6,18 +6,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#eeeef3"
-    tools:context=".DayHocActivity">
+    android:background="@color/background"
+    tools:context=".view.DayHocActivity">
 
     <LinearLayout
-        android:background="#f0f"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
         android:gravity="center"
+        android:background="@color/nav"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="?attr/actionBarSize">
         <TextView
             android:text="Dạy học"
+            android:textColor="@color/textWhite"
             android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
@@ -29,10 +28,8 @@
         android:layout_height="match_parent">
         <ListView
             android:id="@+id/lv_DayHoc"
-            android:divider="#eeeef3"
+            android:divider="@color/background"
             android:dividerHeight="5dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
         </ListView>

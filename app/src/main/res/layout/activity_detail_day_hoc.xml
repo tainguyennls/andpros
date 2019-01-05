@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".DetailDayHocActivity">
+    tools:context=".view.DetailDayHocActivity">
 
     <LinearLayout
         android:padding="10dp"

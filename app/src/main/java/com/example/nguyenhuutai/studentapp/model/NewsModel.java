@@ -18,24 +18,13 @@ public class NewsModel {
         return user;
     }
 
-    public void setContent(String content) {
-        this.content = content;
-    }
-
     public String getContent() {
         return content;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
     }
 
     public String getTime() {
         return time;
     }
 
-    @Override
-    public String toString() {
-        return this.user  + this.time + this.content;
-    }
+
 }

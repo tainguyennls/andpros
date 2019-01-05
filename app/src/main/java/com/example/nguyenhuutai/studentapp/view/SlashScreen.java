@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 
-import com.example.nguyenhuutai.studentapp.BottomNavigationActivity;
 import com.example.nguyenhuutai.studentapp.R;
 
 public class SlashScreen extends AppCompatActivity  {
