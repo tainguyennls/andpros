@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.nguyenhuutai.studentapp.adapters.NewsAdapter;
+import com.example.nguyenhuutai.studentapp.model.ItemOffsetDecoration;
 import com.example.nguyenhuutai.studentapp.model.NewsModel;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -41,6 +42,8 @@ public class BangTinFragment extends Fragment {
         newsModels = new ArrayList<>();
         recyclerView = v.findViewById(R.id.lvNews);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        ItemOffsetDecoration itemDecoration = new ItemOffsetDecoration(10);
+        recyclerView.addItemDecoration(itemDecoration);
         render();
         return v;
     }
