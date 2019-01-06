@@ -9,8 +9,8 @@ import android.widget.ListView;
 
 import com.example.nguyenhuutai.studentapp.R;
 import com.example.nguyenhuutai.studentapp.adapters.DoanHoiAdapter;
-import com.example.nguyenhuutai.studentapp.interfaces.IAssco;
-import com.example.nguyenhuutai.studentapp.model.DoanHoiModel;
+import com.example.nguyenhuutai.studentapp.interfaces.IGroup;
+import com.example.nguyenhuutai.studentapp.model.GroupModel;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -22,7 +22,7 @@ import java.util.List;
 
 public class DoanHoiActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
-    private List<DoanHoiModel> doanHoiModels;
+    private List<GroupModel> groupModels;
     private ListView lvDoanHoi;
     private DatabaseReference df;
     private DoanHoiAdapter doanHoiAdapter;
@@ -33,7 +33,7 @@ public class DoanHoiActivity extends AppCompatActivity implements AdapterView.On
         setContentView(R.layout.activity_doan_hoi);
 
         df = FirebaseDatabase.getInstance().getReference().child("assocs");
-        doanHoiModels = new ArrayList<>();
+        groupModels = new ArrayList<>();
         lvDoanHoi = findViewById(R.id.association);
         lvDoanHoi.setOnItemClickListener(this);
 
@@ -43,26 +43,26 @@ public class DoanHoiActivity extends AppCompatActivity implements AdapterView.On
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Intent intent =  new Intent(DoanHoiActivity.this,DetailDoanHoiActivity.class);
-        intent.putExtra("name",doanHoiModels.get(position).getName());
-        intent.putExtra("descript",doanHoiModels.get(position).getDescript());
+        intent.putExtra("name", groupModels.get(position).getName());
+        intent.putExtra("descript", groupModels.get(position).getDescript());
         startActivity(intent);
         overridePendingTransition(R.anim.slide_from_right,R.anim.slide_to_left);
     }
 
     public interface OnCall{
-        void call(List<DoanHoiModel> doanHoiModels);
+        void call(List<GroupModel> groupModels);
     }
 
-    public void getDoanHoi(final IAssco iAssco){
+    public void getDoanHoi(final IGroup iGroup){
 
         ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot sh : dataSnapshot.getChildren()){
-                    DoanHoiModel doanHoiModel = sh.getValue(DoanHoiModel.class);
-                    doanHoiModels.add(doanHoiModel);
+                    GroupModel groupModel = sh.getValue(GroupModel.class);
+                    groupModels.add(groupModel);
                 }
-                iAssco.call(doanHoiModels);
+                iGroup.call(groupModels);
             }
 
             @Override
@@ -74,10 +74,10 @@ public class DoanHoiActivity extends AppCompatActivity implements AdapterView.On
     }
 
     public void render(){
-        getDoanHoi(new IAssco() {
+        getDoanHoi(new IGroup() {
             @Override
-            public void call(List<DoanHoiModel> doanHoiModels) {
-                doanHoiAdapter = new DoanHoiAdapter(DoanHoiActivity.this,R.id.association,doanHoiModels);
+            public void call(List<GroupModel> groupModels) {
+                doanHoiAdapter = new DoanHoiAdapter(DoanHoiActivity.this,R.id.association, groupModels);
                 lvDoanHoi.setAdapter(doanHoiAdapter);
             }
         });

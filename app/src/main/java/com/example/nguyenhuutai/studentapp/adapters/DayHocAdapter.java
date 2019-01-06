@@ -9,22 +9,22 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.example.nguyenhuutai.studentapp.R;
-import com.example.nguyenhuutai.studentapp.model.DayHocModel;
+import com.example.nguyenhuutai.studentapp.model.TeachModel;
 
 import java.util.List;
 
-public class DayHocAdapter extends ArrayAdapter<DayHocModel> {
+public class DayHocAdapter extends ArrayAdapter<TeachModel> {
 
     private Context context;
     private int resource;
-    private List<DayHocModel> dayHocModels;
+    private List<TeachModel> teachModels;
     private TextView txtName,txtContent;
 
-    public DayHocAdapter(Context context, int resource, List<DayHocModel> objects) {
+    public DayHocAdapter(Context context, int resource, List<TeachModel> objects) {
         super(context, resource, objects);
         this.context  = context;
         this.resource = resource;
-        this.dayHocModels = objects;
+        this.teachModels = objects;
     }
 
     @Override
@@ -35,7 +35,7 @@ public class DayHocAdapter extends ArrayAdapter<DayHocModel> {
             txtName  = convertView.findViewById(R.id.name_day_hoc);
             txtContent = convertView.findViewById(R.id.content_day_hoc);
 
-            DayHocModel models  = dayHocModels.get(position);
+            TeachModel models  = teachModels.get(position);
 
             txtName.setText(models.getName());
             txtContent.setText(models.getContent());

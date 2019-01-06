@@ -8,16 +8,16 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.example.nguyenhuutai.studentapp.R;
-import com.example.nguyenhuutai.studentapp.model.ViecLamModel;
+import com.example.nguyenhuutai.studentapp.model.JobModel;
 
 import java.util.List;
 
-public class ViecLamAdapter extends ArrayAdapter<ViecLamModel> {
+public class ViecLamAdapter extends ArrayAdapter<JobModel> {
     private Context  context;
-    private List<ViecLamModel> viecLamModels;
+    private List<JobModel> viecLamModels;
     private TextView txtTitle,txtTimer;
 
-    public ViecLamAdapter(Context context, int resource,List<ViecLamModel> objects) {
+    public ViecLamAdapter(Context context, int resource,List<JobModel> objects) {
         super(context, resource, objects);
         this.context  = context;
         this.viecLamModels = objects;
@@ -32,7 +32,7 @@ public class ViecLamAdapter extends ArrayAdapter<ViecLamModel> {
             txtTitle = convertView.findViewById(R.id.title_career);
             txtTimer = convertView.findViewById(R.id.time_career);
 
-            ViecLamModel viecLamModel  = viecLamModels.get(position);
+            JobModel viecLamModel  = viecLamModels.get(position);
 
             txtTitle.setText(viecLamModel.getTitle());
             txtTimer.setText(viecLamModel.getTime());

@@ -1,11 +1,11 @@
 package com.example.nguyenhuutai.studentapp.model;
 
-public class DayHocModel {
+public class TeachModel {
     private String name;
     private String content;
     private String tag;
 
-    public DayHocModel(){
+    public TeachModel(){
 
     }
 

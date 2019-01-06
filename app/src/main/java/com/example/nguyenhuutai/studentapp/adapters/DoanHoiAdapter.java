@@ -8,7 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.example.nguyenhuutai.studentapp.R;
-import com.example.nguyenhuutai.studentapp.model.DoanHoiModel;
+import com.example.nguyenhuutai.studentapp.model.GroupModel;
 
 import java.util.List;
 
@@ -16,15 +16,15 @@ public class DoanHoiAdapter extends ArrayAdapter {
 
     private Context context;
     private int resource;
-    private List<DoanHoiModel> doanHoiModels;
+    private List<GroupModel> groupModels;
     private TextView txtName,txtDecscript;
 
-    public DoanHoiAdapter(Context context, int resource, List<DoanHoiModel> objects) {
+    public DoanHoiAdapter(Context context, int resource, List<GroupModel> objects) {
 
         super(context, resource, objects);
         this.context  = context;
         this.resource = resource;
-        this.doanHoiModels = objects;
+        this.groupModels = objects;
     }
 
     @Override
@@ -35,7 +35,7 @@ public class DoanHoiAdapter extends ArrayAdapter {
             txtName  = convertView.findViewById(R.id.title_info);
             txtDecscript = convertView.findViewById(R.id.subs);
 
-            DoanHoiModel models  = doanHoiModels.get(position);
+            GroupModel models  = groupModels.get(position);
 
             txtName.setText(models.getName());
             txtDecscript.setText(models.getDescript());

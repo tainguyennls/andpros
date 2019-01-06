@@ -1,9 +1,9 @@
 package com.example.nguyenhuutai.studentapp.interfaces;
 
-import com.example.nguyenhuutai.studentapp.model.ViecLamModel;
+import com.example.nguyenhuutai.studentapp.model.JobModel;
 
 import java.util.List;
 
 public interface ICareer {
-    void call(List<ViecLamModel> viecLamModels);
+    void call(List<JobModel> jobModels);
 }

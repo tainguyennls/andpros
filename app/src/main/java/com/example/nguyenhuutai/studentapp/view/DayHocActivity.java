@@ -9,8 +9,8 @@ import android.widget.ListView;
 
 import com.example.nguyenhuutai.studentapp.R;
 import com.example.nguyenhuutai.studentapp.adapters.DayHocAdapter;
-import com.example.nguyenhuutai.studentapp.interfaces.ILearn;
-import com.example.nguyenhuutai.studentapp.model.DayHocModel;
+import com.example.nguyenhuutai.studentapp.interfaces.ITeach;
+import com.example.nguyenhuutai.studentapp.model.TeachModel;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -22,7 +22,7 @@ import java.util.List;
 
 public class DayHocActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
-    private List<DayHocModel> dayHocModels;
+    private List<TeachModel> teachModels;
     private ListView lvDayHoc;
     private DatabaseReference df;
     private DayHocAdapter dayHocAdapter;
@@ -33,7 +33,7 @@ public class DayHocActivity extends AppCompatActivity implements AdapterView.OnI
         setContentView(R.layout.activity_day_hoc);
 
         df = FirebaseDatabase.getInstance().getReference().child("teachs");
-        dayHocModels = new ArrayList<>();
+        teachModels = new ArrayList<>();
         lvDayHoc = findViewById(R.id.lv_DayHoc);
         lvDayHoc.setOnItemClickListener(this);
 
@@ -43,23 +43,23 @@ public class DayHocActivity extends AppCompatActivity implements AdapterView.OnI
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Intent intent =  new Intent(DayHocActivity.this,DetailDayHocActivity.class);
-        intent.putExtra("name",dayHocModels.get(position).getName());
-        intent.putExtra("content",dayHocModels.get(position).getContent());
+        intent.putExtra("name", teachModels.get(position).getName());
+        intent.putExtra("content", teachModels.get(position).getContent());
         startActivity(intent);
         overridePendingTransition(R.anim.slide_from_right,R.anim.slide_to_left);
     }
 
 
-    public void getDoanHoi(final ILearn iLearn){
+    public void getDoanHoi(final ITeach iTeach){
 
         ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot sh : dataSnapshot.getChildren()){
-                    DayHocModel dayHocModel = sh.getValue(DayHocModel.class);
-                    dayHocModels.add(dayHocModel);
+                    TeachModel teachModel = sh.getValue(TeachModel.class);
+                    teachModels.add(teachModel);
                 }
-                iLearn.call(dayHocModels);
+                iTeach.call(teachModels);
             }
 
             @Override
@@ -71,10 +71,10 @@ public class DayHocActivity extends AppCompatActivity implements AdapterView.OnI
     }
 
     public void render(){
-        getDoanHoi(new ILearn() {
+        getDoanHoi(new ITeach() {
             @Override
-            public void call(List<DayHocModel> dayHocModels) {
-                dayHocAdapter = new DayHocAdapter(DayHocActivity.this,R.id.lv_DayHoc,dayHocModels);
+            public void call(List<TeachModel> teachModels) {
+                dayHocAdapter = new DayHocAdapter(DayHocActivity.this,R.id.lv_DayHoc, teachModels);
                 lvDayHoc.setAdapter(dayHocAdapter);
             }
         });

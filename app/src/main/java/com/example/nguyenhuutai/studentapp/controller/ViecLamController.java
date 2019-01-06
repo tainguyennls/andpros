@@ -5,19 +5,19 @@ import android.widget.ListView;
 
 import com.example.nguyenhuutai.studentapp.adapters.ViecLamAdapter;
 import com.example.nguyenhuutai.studentapp.interfaces.ICareer;
-import com.example.nguyenhuutai.studentapp.model.ViecLamModel;
+import com.example.nguyenhuutai.studentapp.model.JobModel;
 
 import java.util.List;
 
 public class ViecLamController {
 
-    private ViecLamModel  viecLamModel;
+    private JobModel viecLamModel;
     private ViecLamAdapter viecLamAdapter;
     private Context context;
     private int resource;
 
     public ViecLamController(Context context, int resource){
-        viecLamModel  = new ViecLamModel();
+        viecLamModel  = new JobModel();
         this.context = context;
         this.resource = resource;
     }
@@ -25,7 +25,7 @@ public class ViecLamController {
     public void render(final ListView lvCareer){
         viecLamModel.getListOfCareers(new ICareer() {
             @Override
-            public void call(List<ViecLamModel> viecLamModels) {
+            public void call(List<JobModel> viecLamModels) {
                 viecLamAdapter  = new ViecLamAdapter(context,resource,viecLamModels);
                 lvCareer.setAdapter(viecLamAdapter);
             }

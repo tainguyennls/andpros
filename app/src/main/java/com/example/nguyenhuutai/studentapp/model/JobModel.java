@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class ViecLamModel {
+public class JobModel {
 
     private String title;
     private String time;
@@ -29,10 +29,10 @@ public class ViecLamModel {
     private String age;
     private String deadline;
     private PrepareData prepareData;
-    private List<ViecLamModel> viecLamModels;
+    private List<JobModel> viecLamModels;
 
 
-    public ViecLamModel(){
+    public JobModel(){
 
     }
 
@@ -109,7 +109,7 @@ public class ViecLamModel {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot sh : dataSnapshot.getChildren()){
-                    ViecLamModel viecLamModel = sh.getValue(ViecLamModel.class);
+                    JobModel viecLamModel = sh.getValue(JobModel.class);
                     viecLamModels.add(viecLamModel);
                 }
                 iCareer.call(viecLamModels);

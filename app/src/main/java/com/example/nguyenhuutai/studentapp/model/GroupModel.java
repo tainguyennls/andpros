@@ -2,12 +2,12 @@ package com.example.nguyenhuutai.studentapp.model;
 
 import java.io.Serializable;
 
-public class DoanHoiModel{
+public class GroupModel {
 
     private String name;
     private String descript;
 
-    public DoanHoiModel(){
+    public GroupModel(){
         // Empty constructor require...
     }
 
