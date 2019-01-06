@@ -1,8 +1,12 @@
 package com.example.nguyenhuutai.studentapp.views;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -31,6 +35,11 @@ public class DayHocActivity extends AppCompatActivity implements AdapterView.OnI
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_day_hoc);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Dạy học");
+        actionBar.setHomeAsUpIndicator(R.drawable.ic_chevron_left_black_24dp);
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#0274BD")));
 
         df = FirebaseDatabase.getInstance().getReference().child("teachs");
         teachModels = new ArrayList<>();
@@ -89,5 +98,11 @@ public class DayHocActivity extends AppCompatActivity implements AdapterView.OnI
     @Override
     public void onBackPressed() {
         finish();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        finish();
+        return super.onOptionsItemSelected(item);
     }
 }

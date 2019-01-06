@@ -6,21 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#EEEEF3"
+    android:background="@color/background"
     tools:context=".views.GroupActivity">
-
-    <LinearLayout
-        android:gravity="center"
-        android:background="@color/nav"
-        android:layout_width="match_parent"
-        android:layout_height="?actionBarSize">
-        <TextView
-            android:textStyle="bold"
-            android:textColor="@color/textWhite"
-            android:text="Hoạt động đoàn và hội"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
 
     <LinearLayout
         android:layout_marginTop="5dp"
@@ -29,18 +16,11 @@
         android:layout_weight="1"
         android:layout_height="0dp">
         <ListView
-            android:divider="#eeeef3"
+            android:divider="@color/background"
             android:dividerHeight="5dp"
             android:id="@+id/association"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
         </ListView>
     </LinearLayout>
-
-    <include
-        android:layout_gravity="bottom"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        layout="@layout/activity_bottom_navigation"/>
-
 </LinearLayout>

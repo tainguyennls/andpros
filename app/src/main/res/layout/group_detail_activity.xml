@@ -6,11 +6,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.DetailDoanHoiActivity">
+    tools:context=".views.GroupDetailActivity">
 
     <LinearLayout
         android:padding="15dp"
-        android:background="#92DD59"
+        android:background="@color/back_item"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -27,7 +27,7 @@
             android:layout_height="wrap_content" />
     </LinearLayout>
    <ScrollView
-       android:background="#fff"
+       android:background="@color/background"
        android:layout_width="match_parent"
        android:layout_weight="1"
        android:layout_height="0dp">
@@ -41,11 +41,4 @@
                android:layout_height="wrap_content" />
        </LinearLayout>
    </ScrollView>
-
-    <include
-        android:layout_gravity="bottom"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        layout="@layout/activity_bottom_navigation"/>
-
 </LinearLayout>
