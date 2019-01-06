@@ -1,4 +1,4 @@
-package com.example.nguyenhuutai.studentapp.view;
+package com.example.nguyenhuutai.studentapp.views;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

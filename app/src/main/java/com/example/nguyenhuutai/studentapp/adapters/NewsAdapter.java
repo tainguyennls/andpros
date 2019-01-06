@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.nguyenhuutai.studentapp.model.NewsModel;
+import com.example.nguyenhuutai.studentapp.models.NewsModel;
 import com.example.nguyenhuutai.studentapp.R;
 
 import java.util.List;

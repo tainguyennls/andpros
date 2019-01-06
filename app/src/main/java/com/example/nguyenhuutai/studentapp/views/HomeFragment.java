@@ -1,4 +1,4 @@
-package com.example.nguyenhuutai.studentapp.view;
+package com.example.nguyenhuutai.studentapp.views;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.example.nguyenhuutai.studentapp.R;
-import com.example.nguyenhuutai.studentapp.ViecLamActivity;
 
 
 public class HomeFragment extends Fragment implements View.OnClickListener {

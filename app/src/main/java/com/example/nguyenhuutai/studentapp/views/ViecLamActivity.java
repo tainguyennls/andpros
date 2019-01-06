@@ -1,10 +1,11 @@
-package com.example.nguyenhuutai.studentapp;
+package com.example.nguyenhuutai.studentapp.views;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
 
-import com.example.nguyenhuutai.studentapp.controller.JobController;
+import com.example.nguyenhuutai.studentapp.R;
+import com.example.nguyenhuutai.studentapp.controllers.JobController;
 
 public class ViecLamActivity extends AppCompatActivity {
 

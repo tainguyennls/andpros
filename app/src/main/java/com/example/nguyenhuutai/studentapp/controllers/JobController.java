@@ -1,11 +1,11 @@
-package com.example.nguyenhuutai.studentapp.controller;
+package com.example.nguyenhuutai.studentapp.controllers;
 
 import android.content.Context;
 import android.widget.ListView;
 
 import com.example.nguyenhuutai.studentapp.adapters.JobAdapter;
 import com.example.nguyenhuutai.studentapp.interfaces.ICareer;
-import com.example.nguyenhuutai.studentapp.model.JobModel;
+import com.example.nguyenhuutai.studentapp.models.JobModel;
 
 import java.util.List;
 

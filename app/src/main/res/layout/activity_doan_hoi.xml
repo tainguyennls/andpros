@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#EEEEF3"
-    tools:context=".view.GroupActivity">
+    tools:context=".views.GroupActivity">
 
     <LinearLayout
         android:gravity="center"

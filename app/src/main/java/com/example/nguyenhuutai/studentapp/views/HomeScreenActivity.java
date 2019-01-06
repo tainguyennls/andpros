@@ -1,4 +1,4 @@
-package com.example.nguyenhuutai.studentapp.view;
+package com.example.nguyenhuutai.studentapp.views;
 
 
 import android.content.Intent;
@@ -12,7 +12,7 @@ import android.widget.Toast;
 import com.example.nguyenhuutai.studentapp.R;
 import com.example.nguyenhuutai.studentapp.adapters.LecturerAdapter;
 import com.example.nguyenhuutai.studentapp.interfaces.ILecturer;
-import com.example.nguyenhuutai.studentapp.model.LecturerModel;
+import com.example.nguyenhuutai.studentapp.models.LecturerModel;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;

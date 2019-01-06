@@ -1,4 +1,4 @@
-package com.example.nguyenhuutai.studentapp.model;
+package com.example.nguyenhuutai.studentapp.models;
 
 public class Student {
     private String id;

@@ -9,7 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.example.nguyenhuutai.studentapp.R;
-import com.example.nguyenhuutai.studentapp.model.TeachModel;
+import com.example.nguyenhuutai.studentapp.models.TeachModel;
 
 import java.util.List;
 

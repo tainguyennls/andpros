@@ -8,7 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.example.nguyenhuutai.studentapp.R;
-import com.example.nguyenhuutai.studentapp.model.GroupModel;
+import com.example.nguyenhuutai.studentapp.models.GroupModel;
 
 import java.util.List;
 

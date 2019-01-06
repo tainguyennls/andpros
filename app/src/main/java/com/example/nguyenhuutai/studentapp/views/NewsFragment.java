@@ -1,4 +1,4 @@
-package com.example.nguyenhuutai.studentapp.view;
+package com.example.nguyenhuutai.studentapp.views;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -11,8 +11,8 @@ import android.view.ViewGroup;
 import com.example.nguyenhuutai.studentapp.R;
 import com.example.nguyenhuutai.studentapp.adapters.NewsAdapter;
 import com.example.nguyenhuutai.studentapp.interfaces.INews;
-import com.example.nguyenhuutai.studentapp.model.ItemOffsetDecoration;
-import com.example.nguyenhuutai.studentapp.model.NewsModel;
+import com.example.nguyenhuutai.studentapp.models.ItemOffsetDecoration;
+import com.example.nguyenhuutai.studentapp.models.NewsModel;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;

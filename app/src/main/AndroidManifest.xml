@@ -11,24 +11,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.SlashScreen">
+        <activity android:name=".views.SlashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.HomeScreenActivity" />
+        <activity android:name=".views.HomeScreenActivity" />
         <activity
-            android:name=".view.BottomNavigationActivity"
+            android:name=".views.BottomNavigationActivity"
             android:label="@string/title_activity_bottom_navigation" />
-        <activity android:name=".view.MainActivity" />
-        <activity android:name=".view.DetailLecturerActivity" />
-        <activity android:name=".view.GroupActivity" />
-        <activity android:name=".view.DetailDoanHoiActivity" />
-        <activity android:name=".view.DayHocActivity" />
-        <activity android:name=".view.DetailDayHocActivity" />
-        <activity android:name=".ViecLamActivity"></activity>
+        <activity android:name=".views.MainActivity" />
+        <activity android:name=".views.DetailLecturerActivity" />
+        <activity android:name=".views.GroupActivity" />
+        <activity android:name=".views.DetailDoanHoiActivity" />
+        <activity android:name=".views.DayHocActivity" />
+        <activity android:name=".views.DetailDayHocActivity" />
+        <activity android:name=".views.ViecLamActivity"></activity>
     </application>
 
 </manifest>

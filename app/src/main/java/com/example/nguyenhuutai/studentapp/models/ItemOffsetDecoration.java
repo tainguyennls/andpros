@@ -1,4 +1,4 @@
-package com.example.nguyenhuutai.studentapp.model;
+package com.example.nguyenhuutai.studentapp.models;
 
 import android.graphics.Rect;
 import android.support.v7.widget.RecyclerView;

@@ -8,7 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.example.nguyenhuutai.studentapp.R;
-import com.example.nguyenhuutai.studentapp.model.JobModel;
+import com.example.nguyenhuutai.studentapp.models.JobModel;
 
 import java.util.List;
 

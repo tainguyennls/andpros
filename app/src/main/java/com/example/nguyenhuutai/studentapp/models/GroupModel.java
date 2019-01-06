@@ -1,6 +1,4 @@
-package com.example.nguyenhuutai.studentapp.model;
-
-import java.io.Serializable;
+package com.example.nguyenhuutai.studentapp.models;
 
 public class GroupModel {
 

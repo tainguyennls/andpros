@@ -1,6 +1,6 @@
 package com.example.nguyenhuutai.studentapp.interfaces;
 
-import com.example.nguyenhuutai.studentapp.model.NewsModel;
+import com.example.nguyenhuutai.studentapp.models.NewsModel;
 
 import java.util.List;
 

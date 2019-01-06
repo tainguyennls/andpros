@@ -1,4 +1,4 @@
-package com.example.nguyenhuutai.studentapp.view;
+package com.example.nguyenhuutai.studentapp.views;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -10,8 +10,8 @@ import android.widget.TextView;
 
 import com.example.nguyenhuutai.studentapp.R;
 import com.example.nguyenhuutai.studentapp.adapters.ItemAdapter;
-import com.example.nguyenhuutai.studentapp.model.LecturerModel;
-import com.example.nguyenhuutai.studentapp.model.StringItem;
+import com.example.nguyenhuutai.studentapp.models.LecturerModel;
+import com.example.nguyenhuutai.studentapp.models.StringItem;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;

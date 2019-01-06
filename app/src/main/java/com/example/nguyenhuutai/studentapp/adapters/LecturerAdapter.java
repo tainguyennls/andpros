@@ -10,7 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.nguyenhuutai.studentapp.R;
-import com.example.nguyenhuutai.studentapp.model.LecturerModel;
+import com.example.nguyenhuutai.studentapp.models.LecturerModel;
 import java.util.List;
 
 public class LecturerAdapter extends ArrayAdapter<LecturerModel> {

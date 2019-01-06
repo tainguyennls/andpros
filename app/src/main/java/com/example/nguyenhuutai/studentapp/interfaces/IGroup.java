@@ -1,6 +1,6 @@
 package com.example.nguyenhuutai.studentapp.interfaces;
 
-import com.example.nguyenhuutai.studentapp.model.GroupModel;
+import com.example.nguyenhuutai.studentapp.models.GroupModel;
 
 import java.util.List;
 

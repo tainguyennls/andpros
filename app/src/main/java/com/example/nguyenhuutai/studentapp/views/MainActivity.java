@@ -1,4 +1,4 @@
-package com.example.nguyenhuutai.studentapp.view;
+package com.example.nguyenhuutai.studentapp.views;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

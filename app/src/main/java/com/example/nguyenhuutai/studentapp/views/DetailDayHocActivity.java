@@ -1,4 +1,4 @@
-package com.example.nguyenhuutai.studentapp.view;
+package com.example.nguyenhuutai.studentapp.views;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -7,24 +7,24 @@ import android.widget.TextView;
 
 import com.example.nguyenhuutai.studentapp.R;
 
-public class DetailDoanHoiActivity extends AppCompatActivity {
+public class DetailDayHocActivity extends AppCompatActivity {
 
-    private TextView txtName,txtDes;
+    private TextView txtName,txtContent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail_doan_hoi);
+        setContentView(R.layout.activity_detail_day_hoc);
 
         Intent intent = getIntent();
         String name = intent.getStringExtra("name");
-        String des = intent.getStringExtra("descript");
+        String content = intent.getStringExtra("content");
 
-        txtName = findViewById(R.id.name);
-        txtDes = findViewById(R.id.des);
+        txtName = findViewById(R.id.title_dis);
+        txtContent =  findViewById(R.id.content_d);
 
         txtName.setText(name);
-        txtDes.setText(des);
+        txtContent.setText(content);
     }
 
     @Override
