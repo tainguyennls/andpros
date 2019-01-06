@@ -10,7 +10,8 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.nguyenhuutai.studentapp.R;
-import com.example.nguyenhuutai.studentapp.adapters.ListAdapter;
+import com.example.nguyenhuutai.studentapp.adapters.LecturerAdapter;
+import com.example.nguyenhuutai.studentapp.interfaces.ILecturer;
 import com.example.nguyenhuutai.studentapp.model.LecturerModel;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -28,7 +29,7 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemC
     private ListView lstv_Lecturer;
     private DatabaseReference df;
     private List<LecturerModel> lecturers;
-    private ListAdapter listAdapter;
+    private LecturerAdapter listAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,19 +89,11 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemC
 
 
     /**
-     *  On Callback ....
-     */
-
-    public interface OnCallback{
-        void callback(List<LecturerModel> lecturerModels);
-    }
-
-    /**
      *  Get all Lecturer in database
-     * @param onCallback callback invoke
+     * @param iLecturer callback invoke
      */
 
-    public void getListOfLecturer(final OnCallback onCallback){
+    public void getListOfLecturer(final ILecturer iLecturer){
 
         ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
@@ -110,7 +103,7 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemC
                     LecturerModel lecturer = shot.getValue(LecturerModel.class);
                     lecturers.add(lecturer);
                 }
-                onCallback.callback(lecturers);
+                iLecturer.call(lecturers);
 
             }
 
@@ -128,11 +121,11 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemC
      */
 
     public void render(){
-        getListOfLecturer(new OnCallback() {
+        getListOfLecturer(new ILecturer() {
             @Override
-            public void callback(List<LecturerModel> lecturerModels) {
+            public void call(List<LecturerModel> lecturerModels) {
                 Collections.sort(lecturers);
-                listAdapter = new ListAdapter(HomeScreen.this,R.id.lstv_Lecturer,lecturers);
+                listAdapter = new LecturerAdapter(HomeScreen.this,R.id.lstv_Lecturer,lecturers);
                 lstv_Lecturer.setAdapter(listAdapter);
             }
         });

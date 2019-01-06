@@ -31,7 +31,7 @@ public class DayHocAdapter extends ArrayAdapter<DayHocModel> {
     public View getView(int position, View convertView, ViewGroup parent) {
 
         if(convertView == null){
-            convertView = LayoutInflater.from(context).inflate(R.layout.dayhocitem,parent,false);
+            convertView = LayoutInflater.from(context).inflate(R.layout.dayhoc_item,parent,false);
             txtName  = convertView.findViewById(R.id.name_day_hoc);
             txtContent = convertView.findViewById(R.id.content_day_hoc);
 

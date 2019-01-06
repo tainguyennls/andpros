@@ -9,6 +9,7 @@ import android.widget.ListView;
 
 import com.example.nguyenhuutai.studentapp.R;
 import com.example.nguyenhuutai.studentapp.adapters.DayHocAdapter;
+import com.example.nguyenhuutai.studentapp.interfaces.ILearn;
 import com.example.nguyenhuutai.studentapp.model.DayHocModel;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -48,11 +49,8 @@ public class DayHocActivity extends AppCompatActivity implements AdapterView.OnI
         overridePendingTransition(R.anim.slide_from_right,R.anim.slide_to_left);
     }
 
-    public interface OnCall{
-        void call(List<DayHocModel> dayHocModels);
-    }
 
-    public void getDoanHoi(final OnCall onCall){
+    public void getDoanHoi(final ILearn iLearn){
 
         ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
@@ -61,7 +59,7 @@ public class DayHocActivity extends AppCompatActivity implements AdapterView.OnI
                     DayHocModel dayHocModel = sh.getValue(DayHocModel.class);
                     dayHocModels.add(dayHocModel);
                 }
-                onCall.call(dayHocModels);
+                iLearn.call(dayHocModels);
             }
 
             @Override
@@ -73,7 +71,7 @@ public class DayHocActivity extends AppCompatActivity implements AdapterView.OnI
     }
 
     public void render(){
-        getDoanHoi(new OnCall() {
+        getDoanHoi(new ILearn() {
             @Override
             public void call(List<DayHocModel> dayHocModels) {
                 dayHocAdapter = new DayHocAdapter(DayHocActivity.this,R.id.lv_DayHoc,dayHocModels);

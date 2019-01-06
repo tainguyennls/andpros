@@ -9,6 +9,7 @@ import android.widget.ListView;
 
 import com.example.nguyenhuutai.studentapp.R;
 import com.example.nguyenhuutai.studentapp.adapters.DoanHoiAdapter;
+import com.example.nguyenhuutai.studentapp.interfaces.IAssco;
 import com.example.nguyenhuutai.studentapp.model.DoanHoiModel;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -52,7 +53,7 @@ public class DoanHoiActivity extends AppCompatActivity implements AdapterView.On
         void call(List<DoanHoiModel> doanHoiModels);
     }
 
-    public void getDoanHoi(final OnCall onCall){
+    public void getDoanHoi(final IAssco iAssco){
 
         ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
@@ -61,7 +62,7 @@ public class DoanHoiActivity extends AppCompatActivity implements AdapterView.On
                     DoanHoiModel doanHoiModel = sh.getValue(DoanHoiModel.class);
                     doanHoiModels.add(doanHoiModel);
                 }
-                onCall.call(doanHoiModels);
+                iAssco.call(doanHoiModels);
             }
 
             @Override
@@ -73,7 +74,7 @@ public class DoanHoiActivity extends AppCompatActivity implements AdapterView.On
     }
 
     public void render(){
-        getDoanHoi(new OnCall() {
+        getDoanHoi(new IAssco() {
             @Override
             public void call(List<DoanHoiModel> doanHoiModels) {
                 doanHoiAdapter = new DoanHoiAdapter(DoanHoiActivity.this,R.id.association,doanHoiModels);

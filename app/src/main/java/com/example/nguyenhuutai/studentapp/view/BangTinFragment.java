@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 
 import com.example.nguyenhuutai.studentapp.R;
 import com.example.nguyenhuutai.studentapp.adapters.NewsAdapter;
+import com.example.nguyenhuutai.studentapp.interfaces.INews;
 import com.example.nguyenhuutai.studentapp.model.ItemOffsetDecoration;
 import com.example.nguyenhuutai.studentapp.model.NewsModel;
 import com.google.firebase.database.DataSnapshot;
@@ -50,11 +51,7 @@ public class BangTinFragment extends Fragment {
         return v;
     }
 
-    public interface OnCall{
-        void call(List<NewsModel> newsModels);
-    }
-
-    public void getDoanHoi(final OnCall onCall){
+    public void getDoanHoi(final INews iNews){
 
         ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
@@ -63,7 +60,7 @@ public class BangTinFragment extends Fragment {
                     NewsModel newsModel = sh.getValue(NewsModel.class);
                     newsModels.add(newsModel);
                 }
-                onCall.call(newsModels);
+                iNews.call(newsModels);
             }
 
             @Override
@@ -75,7 +72,7 @@ public class BangTinFragment extends Fragment {
     }
 
     public void render(){
-        getDoanHoi(new OnCall() {
+        getDoanHoi(new INews() {
             @Override
             public void call(List<NewsModel> newsModels) {
                 newsAdapter = new NewsAdapter(newsModels);
