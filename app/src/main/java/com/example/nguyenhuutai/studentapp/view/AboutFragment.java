@@ -9,18 +9,17 @@ import android.view.ViewGroup;
 import com.example.nguyenhuutai.studentapp.R;
 
 
-public class HoSoFragment extends Fragment {
+public class AboutFragment extends Fragment {
 
 
-    public HoSoFragment() {
+    public AboutFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_ho_so, container, false);
+        return inflater.inflate(R.layout.fragment_thong_tin, container, false);
     }
 
 }
