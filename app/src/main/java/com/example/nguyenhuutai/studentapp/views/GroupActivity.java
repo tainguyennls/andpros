@@ -1,8 +1,12 @@
 package com.example.nguyenhuutai.studentapp.views;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -30,7 +34,12 @@ public class GroupActivity extends AppCompatActivity implements AdapterView.OnIt
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_doan_hoi);
+        setContentView(R.layout.group_activity);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Hoạt động đoàn và hội");
+        actionBar.setHomeAsUpIndicator(R.drawable.ic_chevron_left_black_24dp);
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#0274BD")));
 
         df = FirebaseDatabase.getInstance().getReference().child("assocs");
         groupModels = new ArrayList<>();
@@ -42,7 +51,7 @@ public class GroupActivity extends AppCompatActivity implements AdapterView.OnIt
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Intent intent =  new Intent(GroupActivity.this,DetailDoanHoiActivity.class);
+        Intent intent =  new Intent(GroupActivity.this,GroupDetailActivity.class);
         intent.putExtra("name", groupModels.get(position).getName());
         intent.putExtra("descript", groupModels.get(position).getDescript());
         startActivity(intent);
@@ -92,5 +101,11 @@ public class GroupActivity extends AppCompatActivity implements AdapterView.OnIt
     @Override
     public void onBackPressed() {
         finish();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        finish();
+        return super.onOptionsItemSelected(item);
     }
 }

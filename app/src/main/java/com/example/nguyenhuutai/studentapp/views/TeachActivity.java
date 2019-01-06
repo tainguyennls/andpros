@@ -24,7 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DayHocActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
+public class TeachActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     private List<TeachModel> teachModels;
     private ListView lvDayHoc;
@@ -51,7 +51,7 @@ public class DayHocActivity extends AppCompatActivity implements AdapterView.OnI
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Intent intent =  new Intent(DayHocActivity.this,DetailDayHocActivity.class);
+        Intent intent =  new Intent(TeachActivity.this,TeachDetailActivity.class);
         intent.putExtra("name", teachModels.get(position).getName());
         intent.putExtra("content", teachModels.get(position).getContent());
         startActivity(intent);
@@ -83,7 +83,7 @@ public class DayHocActivity extends AppCompatActivity implements AdapterView.OnI
         getDoanHoi(new ITeach() {
             @Override
             public void call(List<TeachModel> teachModels) {
-                teachAdapter = new TeachAdapter(DayHocActivity.this,R.id.lv_DayHoc, teachModels);
+                teachAdapter = new TeachAdapter(TeachActivity.this,R.id.lv_DayHoc, teachModels);
                 lvDayHoc.setAdapter(teachAdapter);
             }
         });

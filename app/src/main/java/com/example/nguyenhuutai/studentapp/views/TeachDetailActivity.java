@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 import com.example.nguyenhuutai.studentapp.R;
 
-public class DetailDayHocActivity extends AppCompatActivity {
+public class TeachDetailActivity extends AppCompatActivity {
 
     private TextView txtName,txtContent;
 

@@ -47,7 +47,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         switch (v.getId()){
             case R.id.gv:
 
-                //startActivity(new Intent(getActivity(),HomeScreenActivity.class));
+                startActivity(new Intent(getActivity(),LecturerActivity.class));
                 getActivity().overridePendingTransition(R.anim.slide_from_right,R.anim.slide_to_left);
                 break;
 
@@ -57,12 +57,12 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 break;
 
             case R.id.vl:
-                startActivity(new Intent(getActivity(),ViecLamActivity.class));
+                startActivity(new Intent(getActivity(),JobActivity.class));
                 getActivity().overridePendingTransition(R.anim.slide_from_right,R.anim.slide_to_left);
                 break;
 
             case R.id.ts:
-                startActivity(new Intent(getActivity(),DayHocActivity.class));
+                startActivity(new Intent(getActivity(),TeachActivity.class));
                 getActivity().overridePendingTransition(R.anim.slide_from_right,R.anim.slide_to_left);
                 break;
 

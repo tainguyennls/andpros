@@ -37,6 +37,7 @@
                 android:gravity="center"
                 android:layout_width="0dp"
                 android:layout_weight="1"
+                android:background="@color/back_item"
                 android:orientation="vertical"
                 android:layout_height="match_parent">
                 <ImageView
@@ -60,6 +61,7 @@
                 android:gravity="center"
                 android:layout_width="0dp"
                 android:layout_weight="1"
+                android:background="@color/back_item"
                 android:orientation="vertical"
                 android:layout_height="match_parent">
                 <ImageView
@@ -91,6 +93,7 @@
                 android:gravity="center"
                 android:layout_width="0dp"
                 android:layout_weight="1"
+                android:background="@color/back_item"
                 android:orientation="vertical"
                 android:layout_height="match_parent">
                 <ImageView
@@ -115,6 +118,7 @@
                 android:gravity="center"
                 android:layout_width="0dp"
                 android:layout_weight="1"
+                android:background="@color/back_item"
                 android:orientation="vertical"
                 android:layout_height="match_parent">
                 <ImageView

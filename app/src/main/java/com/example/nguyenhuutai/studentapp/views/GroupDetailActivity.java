@@ -7,14 +7,14 @@ import android.widget.TextView;
 
 import com.example.nguyenhuutai.studentapp.R;
 
-public class DetailDoanHoiActivity extends AppCompatActivity {
+public class GroupDetailActivity extends AppCompatActivity {
 
     private TextView txtName,txtDes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail_doan_hoi);
+        setContentView(R.layout.group_detail_activity);
 
         Intent intent = getIntent();
         String name = intent.getStringExtra("name");

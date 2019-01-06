@@ -9,7 +9,7 @@ import android.os.Bundle;
 
 import com.example.nguyenhuutai.studentapp.R;
 
-public class SlashScreen extends AppCompatActivity  {
+public class LoadActivity extends AppCompatActivity  {
 
 
     @Override
@@ -21,7 +21,7 @@ public class SlashScreen extends AppCompatActivity  {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(SlashScreen.this,BottomNavigationActivity.class);
+                Intent intent = new Intent(LoadActivity.this,BottomNavigationActivity.class);
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_from_right,R.anim.slide_to_left);
             }
