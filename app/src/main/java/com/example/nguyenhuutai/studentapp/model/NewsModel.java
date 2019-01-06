@@ -1,13 +1,27 @@
 package com.example.nguyenhuutai.studentapp.model;
 
+import android.support.annotation.NonNull;
+
+import com.example.nguyenhuutai.studentapp.dao.PrepareData;
+import com.example.nguyenhuutai.studentapp.interfaces.INews;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class NewsModel {
 
     private String user;
     private String time;
     private String content;
+    private PrepareData prepareData;
+    private List<NewsModel> newsModels;
 
     public NewsModel(){
-
+        prepareData = new PrepareData();
+        newsModels  = new ArrayList<>();
     }
 
     public void setUser(String user) {
@@ -24,6 +38,27 @@ public class NewsModel {
 
     public String getTime() {
         return time;
+    }
+
+    public void getListOfNews(final INews iNews){
+
+        ValueEventListener valueEventListener  = new ValueEventListener() {
+
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot sh : dataSnapshot.getChildren()){
+                    NewsModel newsModel = sh.getValue(NewsModel.class);
+                    newsModels.add(newsModel);
+                }
+                iNews.call(newsModels);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        };
+        prepareData.moveToNode("news").addListenerForSingleValueEvent(valueEventListener);
     }
 
 

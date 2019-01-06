@@ -35,7 +35,7 @@ public class LecturerAdapter extends ArrayAdapter<LecturerModel> {
     public View getView(int position,View convertView,ViewGroup parent) {
 
         if(null == convertView){
-            convertView = LayoutInflater.from(context).inflate(R.layout.list_item_resource,parent,false);
+            convertView = LayoutInflater.from(context).inflate(R.layout.lecturer_item,parent,false);
 
             logo = convertView.findViewById(R.id.logo);
             user = convertView.findViewById(R.id.txtNameOfLecturer);

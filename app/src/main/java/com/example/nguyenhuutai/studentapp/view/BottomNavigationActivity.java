@@ -13,9 +13,9 @@ import com.example.nguyenhuutai.studentapp.R;
 
 public class BottomNavigationActivity extends AppCompatActivity {
 
-    private TrangChuFragment trangChuFragment;
-    private BangTinFragment bangTinFragment;
-    private HoSoFragment hoSoFragment;
+    private HomeFragment homeFragment;
+    private NewsFragment newsFragment;
+    private AboutFragment hoSoFragment;
 
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -25,15 +25,15 @@ public class BottomNavigationActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    trangChuFragment = new TrangChuFragment();
-                    replaceFragment(trangChuFragment);
+                    homeFragment = new HomeFragment();
+                    replaceFragment(homeFragment);
                     break;
                 case R.id.navigation_dashboard:
-                    bangTinFragment = new BangTinFragment();
-                    replaceFragment(bangTinFragment);
+                    newsFragment = new NewsFragment();
+                    replaceFragment(newsFragment);
                     break;
                 case R.id.navigation_notifications:
-                    hoSoFragment = new HoSoFragment();
+                    hoSoFragment = new AboutFragment();
                     replaceFragment(hoSoFragment);
                     break;
             }
@@ -48,7 +48,7 @@ public class BottomNavigationActivity extends AppCompatActivity {
 
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-        replaceFragment(new TrangChuFragment());
+        replaceFragment(new HomeFragment());
     }
 
     public void replaceFragment(Fragment  fragment){

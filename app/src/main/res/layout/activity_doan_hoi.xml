@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#EEEEF3"
-    tools:context=".view.DoanHoiActivity">
+    tools:context=".view.GroupActivity">
 
     <LinearLayout
         android:gravity="center"
@@ -32,8 +32,6 @@
             android:divider="#eeeef3"
             android:dividerHeight="5dp"
             android:id="@+id/association"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
         </ListView>

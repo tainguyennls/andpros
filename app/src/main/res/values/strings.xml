@@ -1,11 +1,36 @@
 <resources>
     <string name="app_name">StudentApp</string>
     <string name="title_activity_bottom_navigation">BottomNavigationActivity</string>
+
+
+    <!-- Bottom Navigation Bar -->
+
+    <string name="thong_tin">Thông tin</string>
     <string name="bang_tin">Bảng tin</string>
-    <string name="ho_so">Hồ sơ</string>
-    <string name="thong_bao">Thông báo</string>
     <string name="trang_chu">Trang chủ</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- Home Screen -->
+
+    <string name="giang_vien">Giảng viên</string>
+    <string name="doan_va_hoi">Đoàn và Hội</string>
+    <string name="day_hoc">Dạy học</string>
+    <string name="viec_lam">Việc làm</string>
+
+    <!-- Doan va Hoi -->
+
+    <string name="header_doan_va_hoi">Hoạt động đoàn và hội</string>
+
+    <!-- Day hoc -->
+
+    <string name="header_day_hoc">Dạy học</string>
+
+    <!-- Thong tin -->
+
+    <string name="ten_ung_dung">Tên ứng dụng: StudentApp</string>
+    <string name="ngay_phat_hanh">Ngày phát hành: 09/01/2019</string>
+    <string name="phien_ban">Phiên bản: 1.0.0</string>
+    <string name="nha_phat_trien">Nhà phát triển: Nguyễn Hửu Tài và Trần Ngọc Cường</string>
+    <string name="gop_y">Góp ý: hstudent@gmail.com</string>
+
+
 </resources>

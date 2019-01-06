@@ -18,13 +18,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.HomeScreen" />
+        <activity android:name=".view.HomeScreenActivity" />
         <activity
             android:name=".view.BottomNavigationActivity"
             android:label="@string/title_activity_bottom_navigation" />
         <activity android:name=".view.MainActivity" />
         <activity android:name=".view.DetailLecturerActivity" />
-        <activity android:name=".view.DoanHoiActivity" />
+        <activity android:name=".view.GroupActivity" />
         <activity android:name=".view.DetailDoanHoiActivity" />
         <activity android:name=".view.DayHocActivity" />
         <activity android:name=".view.DetailDayHocActivity" />

@@ -8,7 +8,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.nguyenhuutai.studentapp.R;
-import com.example.nguyenhuutai.studentapp.adapters.DayHocAdapter;
+import com.example.nguyenhuutai.studentapp.adapters.TeachAdapter;
 import com.example.nguyenhuutai.studentapp.interfaces.ITeach;
 import com.example.nguyenhuutai.studentapp.model.TeachModel;
 import com.google.firebase.database.DataSnapshot;
@@ -25,7 +25,7 @@ public class DayHocActivity extends AppCompatActivity implements AdapterView.OnI
     private List<TeachModel> teachModels;
     private ListView lvDayHoc;
     private DatabaseReference df;
-    private DayHocAdapter dayHocAdapter;
+    private TeachAdapter teachAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,8 +74,8 @@ public class DayHocActivity extends AppCompatActivity implements AdapterView.OnI
         getDoanHoi(new ITeach() {
             @Override
             public void call(List<TeachModel> teachModels) {
-                dayHocAdapter = new DayHocAdapter(DayHocActivity.this,R.id.lv_DayHoc, teachModels);
-                lvDayHoc.setAdapter(dayHocAdapter);
+                teachAdapter = new TeachAdapter(DayHocActivity.this,R.id.lv_DayHoc, teachModels);
+                lvDayHoc.setAdapter(teachAdapter);
             }
         });
     }
