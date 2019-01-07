@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<android.support.v4.widget.NestedScrollView
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -23,7 +23,6 @@
                 android:id="@+id/header_name_req"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tieu de"
                 android:textStyle="bold" />
             <LinearLayout
                 android:layout_marginTop="@dimen/margin_job_item"
@@ -36,7 +35,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
                 <TextView
-                    android:text="30/2/2019"
                     android:id="@+id/job_timer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
@@ -58,7 +56,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
                 <TextView
-                    android:text="20"
                     android:id="@+id/job_age"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
@@ -75,7 +72,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
                 <TextView
-                    android:text="Cao đăng"
                     android:id="@+id/job_qualify"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
@@ -92,7 +88,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
                 <TextView
-                    android:text="Khong can kinh nghiem"
                     android:id="@+id/job_exper"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
@@ -108,7 +103,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
                 <TextView
-                    android:text="Bê đê"
                     android:id="@+id/job_gender"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
@@ -124,7 +118,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
                 <TextView
-                    android:text="2019"
                     android:id="@+id/job_deadline"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
@@ -140,7 +133,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
                 <TextView
-                    android:text="Bố éo có biết"
                     android:id="@+id/job_location"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
@@ -156,7 +148,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
                 <TextView
-                    android:text="Ngồi không không cần làm gì"
                     android:id="@+id/job_position"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
@@ -172,7 +163,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
                 <TextView
-                    android:text="2000$"
                     android:id="@+id/job_salary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
@@ -188,7 +178,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
                 <TextView
-                    android:text="Làm ngay luôn"
                     android:id="@+id/job_time_start"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
@@ -204,7 +193,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
                 <TextView
-                    android:text="Éo cần"
                     android:id="@+id/job_time_trial"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
@@ -220,7 +208,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
                 <TextView
-                    android:text="0909"
                     android:id="@+id/job_contact"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
@@ -237,7 +224,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
                 <TextView
-                    android:text="Chỉ cần ngồi nhìn"
                     android:id="@+id/job_requirement"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
@@ -254,7 +240,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
                 <TextView
-                    android:text="Không có mô tả"
                     android:id="@+id/job_description"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
@@ -270,7 +255,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
                 <TextView
-                    android:text="Hưởng lương"
                     android:id="@+id/job_benefit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
@@ -278,4 +262,4 @@
         </LinearLayout>
     </LinearLayout>
 
-</ScrollView>
+</android.support.v4.widget.NestedScrollView>

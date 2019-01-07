@@ -1,16 +1,19 @@
 package com.example.nguyenhuutai.studentapp.models;
 
+import android.util.Log;
+
 import com.example.nguyenhuutai.studentapp.dao.PrepareData;
 import com.example.nguyenhuutai.studentapp.interfaces.ICareer;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class JobModel {
+public class JobModel implements Serializable{
 
     private String title;
     private String time;
@@ -100,6 +103,77 @@ public class JobModel {
         return deadline;
     }
 
+    //set
+
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public void setBenefit(String benefit) {
+        this.benefit = benefit;
+    }
+
+    public void setDegree(String degree) {
+        this.degree = degree;
+    }
+
+    public void setDescriptionWork(String descriptionWork) {
+        this.descriptionWork = descriptionWork;
+    }
+
+    public void setContact(String contact) {
+        this.contact = contact;
+    }
+
+    public void setLocationWork(String locationWork) {
+        this.locationWork = locationWork;
+    }
+
+    public void setRequirement(String requirement) {
+        this.requirement = requirement;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
+    public void setExper(String exper) {
+        this.exper = exper;
+    }
+
+    public void setSalary(String salary) {
+        this.salary = salary;
+    }
+
+    public void setTimeStart(String timeStart) {
+        this.timeStart = timeStart;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
+
+    public void setTimeTrial(String timeTrial) {
+        this.timeTrial = timeTrial;
+    }
+
+    public void setDeadline(String deadline) {
+        this.deadline = deadline;
+    }
+
+    public void setJobModels(List<JobModel> jobModels) {
+        this.jobModels = jobModels;
+    }
+
     public void getListOfCareers(final ICareer iCareer){
         prepareData = new PrepareData();
         jobModels = new ArrayList<>();
@@ -122,4 +196,10 @@ public class JobModel {
         };
         prepareData.moveToNode("careers").addListenerForSingleValueEvent(valueEventListener);
     }
+
+    @Override
+    public String toString() {
+        return this.age + this.descriptionWork;
+    }
+
 }

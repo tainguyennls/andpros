@@ -1,12 +1,14 @@
 package com.example.nguyenhuutai.studentapp.controllers;
 
 import android.content.Context;
+import android.util.Log;
 import android.widget.ListView;
 
 import com.example.nguyenhuutai.studentapp.adapters.JobAdapter;
 import com.example.nguyenhuutai.studentapp.interfaces.ICareer;
 import com.example.nguyenhuutai.studentapp.models.JobModel;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class JobController {
@@ -15,9 +17,11 @@ public class JobController {
     private JobAdapter jobAdapter;
     private Context context;
     private int resource;
+    private List<JobModel> jobModelList;
 
     public JobController(Context context, int resource){
         jobModel  = new JobModel();
+        jobModelList = new ArrayList<>();
         this.context = context;
         this.resource = resource;
     }
@@ -25,11 +29,11 @@ public class JobController {
     public void render(final ListView lvCareer){
         jobModel.getListOfCareers(new ICareer() {
             @Override
-            public void call(List<JobModel> viecLamModels) {
-                jobAdapter = new JobAdapter(context,resource,viecLamModels);
+            public void call(List<JobModel> jobModels) {
+                jobAdapter = new JobAdapter(context,resource,jobModels);
+                jobModelList.addAll(jobModels);
                 lvCareer.setAdapter(jobAdapter);
             }
         });
     }
-
 }
