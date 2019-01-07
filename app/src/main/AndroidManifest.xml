@@ -13,7 +13,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".views.LoadActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,26 +22,30 @@
         </activity>
         <activity
             android:name=".views.LecturerActivity"
-            android:parentActivityName=".views.BottomNavigationActivity"/>
+            android:parentActivityName=".views.NavActivity" />
         <activity
-            android:name=".views.BottomNavigationActivity"
+            android:name=".views.NavActivity"
             android:label="@string/title_activity_bottom_navigation" />
         <activity android:name=".views.MainActivity" />
         <activity android:name=".views.DetailLecturerActivity" />
         <activity
             android:name=".views.GroupActivity"
-            android:parentActivityName=".views.BottomNavigationActivity"/>
+            android:parentActivityName=".views.NavActivity" />
         <activity
             android:name=".views.GroupDetailActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
-        <activity android:name=".views.TeachActivity"
-            android:parentActivityName=".views.BottomNavigationActivity"/>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".views.TeachActivity"
+            android:parentActivityName=".views.NavActivity" />
         <activity
             android:name=".views.TeachDetailActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".views.JobActivity"
-            android:parentActivityName=".views.BottomNavigationActivity"/>
+            android:parentActivityName=".views.NavActivity" />
+        <activity
+            android:name=".JobDetailActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
     </application>
 
 </manifest>

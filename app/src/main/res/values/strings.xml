@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">StudentApp</string>
-    <string name="title_activity_bottom_navigation">BottomNavigationActivity</string>
+    <string name="title_activity_bottom_navigation">StudentHub</string>
 
 
     <!-- Bottom Navigation Bar -->
@@ -32,5 +32,23 @@
     <string name="nha_phat_trien">Nhà phát triển: Nguyễn Hửu Tài, Trần Ngọc Cường</string>
     <string name="gop_y">Góp ý: hstudent@gmail.com</string>
 
+    <!-- Chi tiet cong viec -->
+
+    <string name="job_header"></string>
+    <string name="job_timer">Thời gian: </string>
+    <string name="job_age">Tuổi: </string>
+    <string name="job_degree">Bằng cấp: </string>
+    <string name="job_exper">Kinh nghiệm: </string>
+    <string name="job_gender">Giới tính: </string>
+    <string name="job_deadline">Hạn nộp hồ sơ: </string>
+    <string name="job_location">Địa điểm làm việc: </string>
+    <string name="job_position">Vị trí công việc: </string>
+    <string name="job_salary">Lương: </string>
+    <string name="job_time_start">Thời gian bắt đầu: </string>
+    <string name="job_time_trial">Thời gian thử việc: </string>
+    <string name="job_contact">Liên hệ: </string>
+    <string name="job_requirement">Yêu cầu công việc: </string>
+    <string name="job_description">Mô tả công việc: </string>
+    <string name="job_benefit">Quyền lợi: </string>
 
 </resources>

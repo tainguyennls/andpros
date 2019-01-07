@@ -19,117 +19,123 @@
 
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <LinearLayout
-            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <LinearLayout
-                android:id="@+id/gv"
-                android:paddingTop="30dp"
-                android:paddingBottom="30dp"
-                android:layout_marginTop="2dp"
-                android:layout_marginBottom="1dp"
-                android:layout_marginLeft="2dp"
-                android:layout_marginRight="1dp"
-                android:gravity="center"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:background="@color/back_item"
-                android:orientation="vertical"
-                android:layout_height="match_parent">
-                <ImageView
-                    android:src="@mipmap/ic_lecturer"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-                <TextView
-                    android:textStyle="bold"
-                    android:text="Giảng viên"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
-            <LinearLayout
-                android:id="@+id/dk"
-                android:paddingTop="30dp"
-                android:paddingBottom="30dp"
-                android:layout_marginLeft="1dp"
-                android:layout_marginRight="2dp"
-                android:layout_marginTop="2dp"
-                android:layout_marginBottom="1dp"
-                android:gravity="center"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:background="@color/back_item"
-                android:orientation="vertical"
-                android:layout_height="match_parent">
-                <ImageView
-                    android:src="@mipmap/ic_action"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-                <TextView
-                    android:textStyle="bold"
-                    android:text="Doàn và Hội "
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:id="@+id/gv"
+                    android:paddingTop="30dp"
+                    android:paddingBottom="30dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="1dp"
+                    android:gravity="center"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:background="@color/back_item"
+                    android:orientation="vertical"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:src="@mipmap/ic_lecturer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:textStyle="bold"
+                        android:text="Giảng viên"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/dk"
+                    android:paddingTop="30dp"
+                    android:paddingBottom="30dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="2dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="1dp"
+                    android:gravity="center"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:background="@color/back_item"
+                    android:orientation="vertical"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:src="@mipmap/ic_action"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:textStyle="bold"
+                        android:text="Doàn và Hội "
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <LinearLayout
-                android:id="@+id/ts"
-                android:paddingTop="30dp"
-                android:paddingBottom="30dp"
-                android:layout_marginTop="1dp"
-                android:layout_marginLeft="2dp"
-                android:layout_marginRight="1dp"
-                android:layout_marginBottom="2dp"
-                android:gravity="center"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:background="@color/back_item"
-                android:orientation="vertical"
-                android:layout_height="match_parent">
-                <ImageView
-                    android:src="@mipmap/ic_learning"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-                <TextView
-                    android:textStyle="bold"
-                    android:text="Dạy học"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/vl"
-                android:paddingTop="30dp"
-                android:paddingBottom="30dp"
-                android:layout_marginTop="1dp"
-                android:layout_marginLeft="1dp"
-                android:layout_marginBottom="1dp"
-                android:layout_marginRight="2dp"
-                android:gravity="center"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:background="@color/back_item"
-                android:orientation="vertical"
-                android:layout_height="match_parent">
-                <ImageView
-                    android:src="@mipmap/ic_recruiment"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-                <TextView
-                    android:textStyle="bold"
-                    android:text="Việc làm"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/ts"
+                    android:paddingTop="30dp"
+                    android:paddingBottom="30dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginBottom="2dp"
+                    android:gravity="center"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:background="@color/back_item"
+                    android:orientation="vertical"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:src="@mipmap/ic_learning"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:textStyle="bold"
+                        android:text="Dạy học"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/vl"
+                    android:paddingTop="30dp"
+                    android:paddingBottom="30dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginRight="2dp"
+                    android:gravity="center"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:background="@color/back_item"
+                    android:orientation="vertical"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:src="@mipmap/ic_recruiment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:textStyle="bold"
+                        android:text="Việc làm"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

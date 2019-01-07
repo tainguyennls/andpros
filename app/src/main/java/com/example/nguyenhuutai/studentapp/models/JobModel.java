@@ -29,7 +29,7 @@ public class JobModel {
     private String age;
     private String deadline;
     private PrepareData prepareData;
-    private List<JobModel> viecLamModels;
+    private List<JobModel> jobModels;
 
 
     public JobModel(){
@@ -102,17 +102,17 @@ public class JobModel {
 
     public void getListOfCareers(final ICareer iCareer){
         prepareData = new PrepareData();
-        viecLamModels = new ArrayList<>();
+        jobModels = new ArrayList<>();
 
         ValueEventListener valueEventListener = new ValueEventListener() {
 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot sh : dataSnapshot.getChildren()){
-                    JobModel viecLamModel = sh.getValue(JobModel.class);
-                    viecLamModels.add(viecLamModel);
+                    JobModel jobModel = sh.getValue(JobModel.class);
+                    jobModels.add(jobModel);
                 }
-                iCareer.call(viecLamModels);
+                iCareer.call(jobModels);
             }
 
             @Override
