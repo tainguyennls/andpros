@@ -1,6 +1,9 @@
 package com.example.nguyenhuutai.studentapp.views;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -50,8 +53,15 @@ public class DetailLecturerActivity extends AppCompatActivity {
         Intent intent = getIntent();
 
         id = Integer.parseInt(intent.getStringExtra("id_details"));
+        String name = intent.getStringExtra("name");
 
-       render();
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle(name);
+        actionBar.setHomeAsUpIndicator(R.drawable.ic_chevron_left_black_24dp);
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#0274BD")));
+
+
+        render();
 
     }
 

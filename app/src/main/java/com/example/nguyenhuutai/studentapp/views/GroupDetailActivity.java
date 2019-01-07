@@ -1,6 +1,9 @@
 package com.example.nguyenhuutai.studentapp.views;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -15,6 +18,11 @@ public class GroupDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.group_detail_activity);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Hoạt động đoàn và hội");
+        actionBar.setHomeAsUpIndicator(R.drawable.ic_chevron_left_black_24dp);
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#0274BD")));
 
         Intent intent = getIntent();
         String name = intent.getStringExtra("name");

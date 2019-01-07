@@ -10,7 +10,6 @@
 
     <LinearLayout
         android:padding="15dp"
-        android:background="@color/back_item"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -27,7 +26,7 @@
             android:layout_height="wrap_content" />
     </LinearLayout>
    <ScrollView
-       android:background="@color/background"
+       android:background="@color/back_item"
        android:layout_width="match_parent"
        android:layout_weight="1"
        android:layout_height="0dp">

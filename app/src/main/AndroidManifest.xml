@@ -3,6 +3,7 @@
     package="com.example.nguyenhuutai.studentapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -27,25 +28,27 @@
             android:name=".views.NavActivity"
             android:label="@string/title_activity_bottom_navigation" />
         <activity android:name=".views.MainActivity" />
-        <activity android:name=".views.DetailLecturerActivity" />
+        <activity
+            android:name=".views.DetailLecturerActivity"
+            android:parentActivityName=".views.LecturerActivity"/>
         <activity
             android:name=".views.GroupActivity"
             android:parentActivityName=".views.NavActivity" />
         <activity
             android:name=".views.GroupDetailActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+            android:parentActivityName=".views.GroupActivity"/>
         <activity
             android:name=".views.TeachActivity"
             android:parentActivityName=".views.NavActivity" />
         <activity
             android:name=".views.TeachDetailActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+            android:parentActivityName=".views.TeachActivity" />
         <activity
             android:name=".views.JobActivity"
             android:parentActivityName=".views.NavActivity" />
         <activity
             android:name=".JobDetailActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+            android:parentActivityName=".views.JobActivity"/>
     </application>
 
 </manifest>

@@ -51,7 +51,7 @@
                         android:layout_height="wrap_content" />
                     <TextView
                         android:textStyle="bold"
-                        android:text="Giảng viên"
+                        android:text="@string/giang_vien"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                 </LinearLayout>
@@ -75,7 +75,7 @@
                         android:layout_height="wrap_content" />
                     <TextView
                         android:textStyle="bold"
-                        android:text="Doàn và Hội "
+                        android:text="@string/doan_va_hoi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                 </LinearLayout>
@@ -107,7 +107,7 @@
                         android:layout_height="wrap_content" />
                     <TextView
                         android:textStyle="bold"
-                        android:text="Dạy học"
+                        android:text="@string/day_hoc"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                 </LinearLayout>
@@ -132,7 +132,7 @@
                         android:layout_height="wrap_content" />
                     <TextView
                         android:textStyle="bold"
-                        android:text="Việc làm"
+                        android:text="@string/viec_lam"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                 </LinearLayout>

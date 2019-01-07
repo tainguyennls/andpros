@@ -26,14 +26,5 @@ public class JobController {
         this.resource = resource;
     }
 
-    public void render(final ListView lvCareer){
-        jobModel.getListOfCareers(new ICareer() {
-            @Override
-            public void call(List<JobModel> jobModels) {
-                jobAdapter = new JobAdapter(context,resource,jobModels);
-                jobModelList.addAll(jobModels);
-                lvCareer.setAdapter(jobAdapter);
-            }
-        });
-    }
+
 }

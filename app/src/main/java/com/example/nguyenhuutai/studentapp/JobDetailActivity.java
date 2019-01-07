@@ -1,6 +1,9 @@
 package com.example.nguyenhuutai.studentapp;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -30,6 +33,11 @@ public class JobDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_job_detail);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Việc làm");
+        actionBar.setHomeAsUpIndicator(R.drawable.ic_chevron_left_black_24dp);
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#0274BD")));
 
         Intent intent = getIntent();
 
@@ -66,5 +74,6 @@ public class JobDetailActivity extends AppCompatActivity {
         txtRequire.setText(intent.getStringExtra("job_require"));
         txtDescript.setText(intent.getStringExtra("job_description"));
         txtBenefit.setText(intent.getStringExtra("job_benefit"));
+
     }
 }

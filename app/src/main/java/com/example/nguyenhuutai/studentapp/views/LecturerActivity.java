@@ -91,6 +91,7 @@ public class LecturerActivity extends AppCompatActivity implements AdapterView.O
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Intent  intent = new Intent(LecturerActivity.this,DetailLecturerActivity.class);
         intent.putExtra("id_details",view.getId()+"");
+        intent.putExtra("name",lecturers.get(position).getName());
         startActivity(intent);
         overridePendingTransition(R.anim.slide_from_right,R.anim.slide_to_left);
         Toast.makeText(LecturerActivity.this,"Id : " + view.getId(),Toast.LENGTH_SHORT).show();

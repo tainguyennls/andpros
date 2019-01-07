@@ -6,25 +6,20 @@ import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Html;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.example.nguyenhuutai.studentapp.JobDetailActivity;
 import com.example.nguyenhuutai.studentapp.R;
 import com.example.nguyenhuutai.studentapp.adapters.JobAdapter;
-import com.example.nguyenhuutai.studentapp.controllers.JobController;
 import com.example.nguyenhuutai.studentapp.dao.PrepareData;
 import com.example.nguyenhuutai.studentapp.interfaces.ICareer;
 import com.example.nguyenhuutai.studentapp.models.JobModel;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.database.collection.LLRBNode;
 
 import java.util.ArrayList;
 import java.util.List;

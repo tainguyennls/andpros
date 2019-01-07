@@ -19,11 +19,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/header_name_req"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textStyle="bold" />
+            <LinearLayout
+                android:gravity="center"
+                android:padding="@dimen/padding_bound_items"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:textColor="@color/nav"
+                    android:id="@+id/header_name_req"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold" />
+            </LinearLayout>
             <LinearLayout
                 android:layout_marginTop="@dimen/margin_job_item"
                 android:orientation="vertical"
@@ -261,5 +268,4 @@
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-
 </android.support.v4.widget.NestedScrollView>

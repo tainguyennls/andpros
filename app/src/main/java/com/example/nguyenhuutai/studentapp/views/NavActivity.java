@@ -51,11 +51,7 @@ public class NavActivity extends AppCompatActivity {
         setContentView(R.layout.activity_bottom_navigation);
 
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("StudentHub");
-        actionBar.setDisplayShowHomeEnabled(true);
-        actionBar.setDisplayUseLogoEnabled(true);
-        actionBar.setLogo(R.drawable.student_hub_app);
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#0274BD")));
+        actionBar.hide();
 
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);

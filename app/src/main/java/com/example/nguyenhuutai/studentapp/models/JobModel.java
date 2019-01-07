@@ -1,19 +1,6 @@
 package com.example.nguyenhuutai.studentapp.models;
 
-import android.util.Log;
-
-import com.example.nguyenhuutai.studentapp.dao.PrepareData;
-import com.example.nguyenhuutai.studentapp.interfaces.ICareer;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.ValueEventListener;
-
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-
-
-public class JobModel implements Serializable{
+public class JobModel {
 
     private String title;
     private String time;
@@ -31,8 +18,6 @@ public class JobModel implements Serializable{
     private String timeTrial;
     private String age;
     private String deadline;
-    private PrepareData prepareData;
-    private List<JobModel> jobModels;
 
 
     public JobModel(){
@@ -169,37 +154,4 @@ public class JobModel implements Serializable{
     public void setDeadline(String deadline) {
         this.deadline = deadline;
     }
-
-    public void setJobModels(List<JobModel> jobModels) {
-        this.jobModels = jobModels;
-    }
-
-    public void getListOfCareers(final ICareer iCareer){
-        prepareData = new PrepareData();
-        jobModels = new ArrayList<>();
-
-        ValueEventListener valueEventListener = new ValueEventListener() {
-
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot sh : dataSnapshot.getChildren()){
-                    JobModel jobModel = sh.getValue(JobModel.class);
-                    jobModels.add(jobModel);
-                }
-                iCareer.call(jobModels);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        };
-        prepareData.moveToNode("careers").addListenerForSingleValueEvent(valueEventListener);
-    }
-
-    @Override
-    public String toString() {
-        return this.age + this.descriptionWork;
-    }
-
 }
