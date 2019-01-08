@@ -25,8 +25,7 @@
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/img_profile"
                 android:layout_width="112dp"
-                android:layout_height="114dp"
-                android:src="@mipmap/ic_action" />
+                android:layout_height="114dp"/>
 
             <LinearLayout
                 android:padding="@dimen/padding_bound_items"
@@ -71,7 +70,7 @@
                     android:layout_height="wrap_content"
                     android:text="Nội dung: " />
                 <EditText
-                    android:id="@+id/content"
+                    android:id="@+id/content_pos"
                     android:maxLines="10"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"/>
@@ -81,6 +80,7 @@
                     android:layout_height="0dp">
                     <Button
                         android:text="Đăng"
+                        android:id="@+id/pos"
                         android:textColor="@color/textWhite"
                         android:background="@color/nav"
                         android:layout_width="wrap_content"
