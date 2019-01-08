@@ -15,6 +15,6 @@
     <item
         android:id="@+id/navigation_notifications"
         android:icon="@drawable/ic_school_black_24dp"
-        android:title="Hồ sơ" />
+        android:title="Thông tin" />
 
 </menu>
