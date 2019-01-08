@@ -29,7 +29,8 @@
         <activity android:name=".views.MainActivity" />
         <activity
             android:name=".views.LecturerDetailActivity"
-            android:parentActivityName=".views.LecturerActivity"/>
+            android:parentActivityName=".views.LecturerActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity
             android:name=".views.GroupActivity"
             android:parentActivityName=".views.NavActivity" />

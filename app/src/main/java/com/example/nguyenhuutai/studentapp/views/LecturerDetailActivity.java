@@ -7,6 +7,8 @@ import android.graphics.drawable.GradientDrawable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Html;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,6 +17,7 @@ import com.example.nguyenhuutai.studentapp.R;
 import com.example.nguyenhuutai.studentapp.adapters.ItemAdapter;
 import com.example.nguyenhuutai.studentapp.models.LecturerModel;
 import com.example.nguyenhuutai.studentapp.models.StringItem;
+import com.example.nguyenhuutai.studentapp.models.UlTagHandler;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -28,7 +31,7 @@ import java.util.List;
 public class LecturerDetailActivity extends AppCompatActivity {
 
     private ImageView imageView;
-    private TextView txtName, txtNamSinh, txtChucVu,txtEmail,txtLogoName;
+    private TextView txtName, txtNamSinh, txtChucVu,txtEmail,txtLogoName,htmList;
     private int id;
     private DatabaseReference df;
     private List<StringItem> topics;
@@ -48,6 +51,7 @@ public class LecturerDetailActivity extends AppCompatActivity {
         txtChucVu = findViewById(R.id.pos);
         txtEmail = findViewById(R.id.email);
         txtLogoName= findViewById(R.id.logo_name);
+        htmList = findViewById(R.id.htmlListShow);
 
         Intent intent = getIntent();
         id = Integer.parseInt(intent.getStringExtra("id_details"));
@@ -136,16 +140,19 @@ public class LecturerDetailActivity extends AppCompatActivity {
                txtLogoName.setText(lecturerModels.getName());
 
 
-//               getTopicsById(new CallbackTopic() {
-//                   @Override
-//                   public void callback(List<StringItem> topics) {
-//                       lecturerModels.setTopic(topics);
-//                       itemTopics = new ItemAdapter(LecturerDetailActivity.this,R.id.lv_topics,topics);
-//                       lv_Topics.setAdapter(itemTopics);
-//                       lv_Topics.setScrollContainer(false);
-//                       lv_Topics.setClickable(false);
-//                   }
-//               });
+               getTopicsById(new CallbackTopic() {
+                   @Override
+                   public void callback(List<StringItem> topics) {
+                       lecturerModels.setTopic(topics);
+                       String str = "<ul>";
+                       for (int i = 0 ; i < topics.size() ; i++){
+                           str+= "<li>" + topics.get(i).getName()+"</li>";
+                       }
+                       str+= "</ul>";
+                       Log.e("BUGS",str);
+                       htmList.setText(Html.fromHtml(str,null,new UlTagHandler()));
+                   }
+               });
            }
        });
     }
