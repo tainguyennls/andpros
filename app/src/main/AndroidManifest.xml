@@ -29,7 +29,7 @@
             android:label="@string/title_activity_bottom_navigation" />
         <activity android:name=".views.MainActivity" />
         <activity
-            android:name=".views.DetailLecturerActivity"
+            android:name=".views.LecturerDetailActivity"
             android:parentActivityName=".views.LecturerActivity"/>
         <activity
             android:name=".views.GroupActivity"
@@ -47,7 +47,7 @@
             android:name=".views.JobActivity"
             android:parentActivityName=".views.NavActivity" />
         <activity
-            android:name=".JobDetailActivity"
+            android:name=".views.JobDetailActivity"
             android:parentActivityName=".views.JobActivity"/>
     </application>
 

@@ -44,8 +44,8 @@
                                     <map>
                                       <entry key="assetType" value="IMAGE" />
                                       <entry key="iconShape" value="NONE" />
-                                      <entry key="imageAsset" value="C:\Users\HOME\Downloads\transistor.png" />
-                                      <entry key="outputName" value="ic_news" />
+                                      <entry key="imageAsset" value="C:\Users\HOME\Downloads\warning-at.png" />
+                                      <entry key="outputName" value="ic_at" />
                                     </map>
                                   </option>
                                 </PersistentState>

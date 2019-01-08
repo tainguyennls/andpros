@@ -1,7 +1,5 @@
 package com.example.nguyenhuutai.studentapp.views;
 
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -9,7 +7,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.nguyenhuutai.studentapp.R;
@@ -19,7 +16,7 @@ public class NavActivity extends AppCompatActivity {
 
     private HomeFragment homeFragment;
     private NewsFragment newsFragment;
-    private AboutFragment hoSoFragment;
+    private AboutFragment aboutFragment;
 
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -37,8 +34,8 @@ public class NavActivity extends AppCompatActivity {
                     replaceFragment(newsFragment);
                     break;
                 case R.id.navigation_notifications:
-                    hoSoFragment = new AboutFragment();
-                    replaceFragment(hoSoFragment);
+                    aboutFragment = new AboutFragment();
+                    replaceFragment(aboutFragment);
                     break;
             }
             return true;
@@ -69,4 +66,6 @@ public class NavActivity extends AppCompatActivity {
     public void onBackPressed() {
         // do not back
     }
+
+
 }

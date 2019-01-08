@@ -1,6 +1,7 @@
 package com.example.nguyenhuutai.studentapp.adapters;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,14 +43,14 @@ public class LecturerAdapter extends ArrayAdapter<LecturerModel> {
             email = convertView.findViewById(R.id.txtEmail);
             linearLayout = convertView.findViewById(R.id.change);
 
-
-
             LecturerModel lecturer = lstLecturer.get(position);
             lecturer.setImageBitMap(logo,lecturer.getImage());
 
             linearLayout.setId(lecturer.getId());
             user.setText(lecturer.getName());
             email.setText(lecturer.getEmail());
+
+            Log.e("BUGS",lecturer.getName());
 
         }
         return convertView;

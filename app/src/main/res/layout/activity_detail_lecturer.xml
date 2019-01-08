@@ -7,7 +7,7 @@
     android:background="#EEEEF3"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.DetailLecturerActivity">
+    tools:context=".views.LecturerDetailActivity">
    <LinearLayout
        android:orientation="vertical"
        android:layout_width="match_parent"

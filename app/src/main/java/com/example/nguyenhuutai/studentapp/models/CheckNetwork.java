@@ -6,20 +6,15 @@ import android.net.NetworkInfo;
 
 public class CheckNetwork {
 
-    public static final int NO_CONNECT_NETWORK = 0;
-    public static final int UNKNOWN_CONNECT_TYPE = -1;
-
     public CheckNetwork(){
 
     }
-    public int getNetworkType(Context context){
+
+    public boolean  checkNetworkState(Context context){
         ConnectivityManager connectivityManager  = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
 
-        if(networkInfo == null || !networkInfo.isConnected()){
-            return  NO_CONNECT_NETWORK;
-        }
-        return 0; // only for demo...
+        return networkInfo != null && networkInfo.isConnected();
     }
 
 }

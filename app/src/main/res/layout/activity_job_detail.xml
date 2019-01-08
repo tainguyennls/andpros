@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     android:padding="@dimen/padding_bound_items"
     android:background="@color/back_item"
-    tools:context=".JobDetailActivity">
+    tools:context=".views.JobDetailActivity">
 
     <LinearLayout
         android:orientation="vertical"

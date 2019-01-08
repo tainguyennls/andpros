@@ -2,7 +2,7 @@ package com.example.nguyenhuutai.studentapp.models;
 
 import android.support.annotation.NonNull;
 
-import com.example.nguyenhuutai.studentapp.dao.PrepareData;
+import com.example.nguyenhuutai.studentapp.dao.Data;
 import com.example.nguyenhuutai.studentapp.interfaces.INews;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -16,11 +16,11 @@ public class NewsModel {
     private String user;
     private String time;
     private String content;
-    private PrepareData prepareData;
+    private Data data;
     private List<NewsModel> newsModels;
 
     public NewsModel(){
-        prepareData = new PrepareData();
+        data = new Data();
         newsModels  = new ArrayList<>();
     }
 
@@ -58,7 +58,7 @@ public class NewsModel {
 
             }
         };
-        prepareData.moveToNode("news").addListenerForSingleValueEvent(valueEventListener);
+        data.moveToNode("news").addListenerForSingleValueEvent(valueEventListener);
     }
 
 

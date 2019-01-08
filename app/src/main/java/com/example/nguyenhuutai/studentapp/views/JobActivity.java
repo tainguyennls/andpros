@@ -11,10 +11,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.example.nguyenhuutai.studentapp.JobDetailActivity;
 import com.example.nguyenhuutai.studentapp.R;
 import com.example.nguyenhuutai.studentapp.adapters.JobAdapter;
-import com.example.nguyenhuutai.studentapp.dao.PrepareData;
+import com.example.nguyenhuutai.studentapp.dao.Data;
 import com.example.nguyenhuutai.studentapp.interfaces.ICareer;
 import com.example.nguyenhuutai.studentapp.models.JobModel;
 import com.google.firebase.database.DataSnapshot;
@@ -29,7 +28,7 @@ public class JobActivity extends AppCompatActivity implements AdapterView.OnItem
 
     private ListView lvCareer;
     private List<JobModel> jobModels;
-    private PrepareData prepareData;
+    private Data data;
     private JobAdapter jobAdapter;
 
     @Override
@@ -43,7 +42,7 @@ public class JobActivity extends AppCompatActivity implements AdapterView.OnItem
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#0274BD")));
 
         jobModels = new ArrayList<>();
-        prepareData = new PrepareData();
+        data = new Data();
         lvCareer = findViewById(R.id.lv_Career);
         lvCareer.setOnItemClickListener(this);
 
@@ -112,7 +111,7 @@ public class JobActivity extends AppCompatActivity implements AdapterView.OnItem
 
             }
         };
-        prepareData.moveToNode("careers").addListenerForSingleValueEvent(valueEventListener);
+        data.moveToNode("careers").addListenerForSingleValueEvent(valueEventListener);
     }
 
     public void render(){

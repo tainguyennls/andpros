@@ -51,4 +51,8 @@
     <string name="job_description">Mô tả công việc: </string>
     <string name="job_benefit">Quyền lợi: </string>
 
+    <!-- Network state -->
+
+    <string name="network_state">Hiện tại thiết bị của bạn vẫn chưa được kết nối với Internet. Hãy kết nối để có thể thực hiện nhiều thao tác hơn</string>
+
 </resources>

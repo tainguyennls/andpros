@@ -12,7 +12,7 @@ import com.google.firebase.storage.StorageReference;
 
 import java.util.List;
 
-public class LecturerModel implements  Comparable<LecturerModel> {
+public class LecturerModel{
 
     private int id;
     private java.lang.String name;
@@ -41,19 +41,19 @@ public class LecturerModel implements  Comparable<LecturerModel> {
         return id;
     }
 
-    public java.lang.String getName() {
+    public String getName() {
         return name;
     }
 
-    public void setName(java.lang.String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
-    public java.lang.String getEmail() {
+    public String getEmail() {
         return email;
     }
 
-    public void setEmail(java.lang.String email) {
+    public void setEmail(String email) {
         this.email = email;
     }
 
@@ -61,7 +61,7 @@ public class LecturerModel implements  Comparable<LecturerModel> {
         return born;
     }
 
-    public void setBorn(java.lang.String born) {
+    public void setBorn(String born) {
         this.born = born;
     }
 
@@ -69,23 +69,23 @@ public class LecturerModel implements  Comparable<LecturerModel> {
         return position;
     }
 
-    public void setPosition(java.lang.String position) {
+    public void setPosition(String position) {
         this.position = position;
     }
 
-    public java.lang.String getStart() {
+    public String getStart() {
         return start;
     }
 
-    public void setStart(java.lang.String start) {
+    public void setStart(String start) {
         this.start = start;
     }
 
-    public java.lang.String getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(java.lang.String image) {
+    public void setImage(String image) {
         this.image = image;
     }
 
@@ -107,14 +107,10 @@ public class LecturerModel implements  Comparable<LecturerModel> {
 
 
     @Override
-    public java.lang.String toString() {
-        return name;
+    public String toString() {
+        return name + this.research;
     }
 
-    @Override
-    public int compareTo(LecturerModel o) {
-        return this.id - o.id;
-    }
 
     public void setImageBitMap(final ImageView imageView, java.lang.String image){
         storageRef.child(image).getBytes(Long.MAX_VALUE).addOnSuccessListener(new OnSuccessListener<byte[]>() {

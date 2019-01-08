@@ -11,29 +11,25 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.example.nguyenhuutai.studentapp.R;
 import com.example.nguyenhuutai.studentapp.adapters.LecturerAdapter;
+import com.example.nguyenhuutai.studentapp.dao.Data;
 import com.example.nguyenhuutai.studentapp.interfaces.ILecturer;
 import com.example.nguyenhuutai.studentapp.models.LecturerModel;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class LecturerActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
-    private ListView lstv_Lecturer;
-    private DatabaseReference df;
+    private ListView lv_Lecturer;
     private List<LecturerModel> lecturers;
     private LecturerAdapter listAdapter;
+    private Data data;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,56 +41,23 @@ public class LecturerActivity extends AppCompatActivity implements AdapterView.O
         actionBar.setHomeAsUpIndicator(R.drawable.ic_chevron_left_black_24dp);
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#0274BD")));
 
+        data = new Data();
         lecturers = new ArrayList<>();
-        df = FirebaseDatabase.getInstance().getReference();
-
-        lstv_Lecturer = findViewById(R.id.lstv_Lecturer);
-        lstv_Lecturer.setOnItemClickListener(this);
+        lv_Lecturer = findViewById(R.id.lstv_Lecturer);
+        lv_Lecturer.setOnItemClickListener(this);
 
         render();
-
-
-        df.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                // No change ...
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot,String s) {
-                lecturers.removeAll(lecturers);
-                render();
-                listAdapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-                lecturers.removeAll(lecturers);
-                render();
-                listAdapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot,String s) {
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
 
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Intent  intent = new Intent(LecturerActivity.this,DetailLecturerActivity.class);
+        Intent  intent = new Intent(LecturerActivity.this,LecturerDetailActivity.class);
         intent.putExtra("id_details",view.getId()+"");
         intent.putExtra("name",lecturers.get(position).getName());
         startActivity(intent);
         overridePendingTransition(R.anim.slide_from_right,R.anim.slide_to_left);
-        Toast.makeText(LecturerActivity.this,"Id : " + view.getId(),Toast.LENGTH_SHORT).show();
+        //Toast.makeText(LecturerActivity.this,"Id : " + view.getId(),Toast.LENGTH_SHORT).show();
     }
 
 
@@ -103,13 +66,12 @@ public class LecturerActivity extends AppCompatActivity implements AdapterView.O
      * @param iLecturer callback invoke
      */
 
-    public void getListOfLecturer(final ILecturer iLecturer){
+    public void getListOfLecturers(final ILecturer iLecturer){
 
         ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                DataSnapshot snapshot  = dataSnapshot.child("lecturers");
-                for(DataSnapshot shot : snapshot.getChildren()) {
+                for(DataSnapshot shot : dataSnapshot.getChildren()) {
                     LecturerModel lecturer = shot.getValue(LecturerModel.class);
                     lecturers.add(lecturer);
                 }
@@ -122,7 +84,7 @@ public class LecturerActivity extends AppCompatActivity implements AdapterView.O
 
             }
         };
-        df.addListenerForSingleValueEvent(valueEventListener);
+        data.moveToNode("lecturers").addListenerForSingleValueEvent(valueEventListener);
     }
 
 
@@ -131,12 +93,11 @@ public class LecturerActivity extends AppCompatActivity implements AdapterView.O
      */
 
     public void render(){
-        getListOfLecturer(new ILecturer() {
+        getListOfLecturers(new ILecturer() {
             @Override
             public void call(List<LecturerModel> lecturerModels) {
-                Collections.sort(lecturers);
                 listAdapter = new LecturerAdapter(LecturerActivity.this,R.id.lstv_Lecturer,lecturers);
-                lstv_Lecturer.setAdapter(listAdapter);
+                lv_Lecturer.setAdapter(listAdapter);
             }
         });
     }
@@ -157,4 +118,5 @@ public class LecturerActivity extends AppCompatActivity implements AdapterView.O
         finish();
         return super.onOptionsItemSelected(item);
     }
+
 }
