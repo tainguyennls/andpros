@@ -7,15 +7,20 @@ import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.nguyenhuutai.studentapp.R;
 import com.example.nguyenhuutai.studentapp.adapters.LecturerAdapter;
 import com.example.nguyenhuutai.studentapp.dao.Data;
 import com.example.nguyenhuutai.studentapp.interfaces.ILecturer;
+import com.example.nguyenhuutai.studentapp.models.CheckNetwork;
 import com.example.nguyenhuutai.studentapp.models.LecturerModel;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -30,6 +35,11 @@ public class LecturerActivity extends AppCompatActivity implements AdapterView.O
     private List<LecturerModel> lecturers;
     private LecturerAdapter listAdapter;
     private Data data;
+    private CheckNetwork checkNetwork;
+    private TextView check;
+    private LinearLayout linearLayout;
+    private TextView connectStatus;
+    private boolean isAdd = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,9 +55,27 @@ public class LecturerActivity extends AppCompatActivity implements AdapterView.O
         lecturers = new ArrayList<>();
         lv_Lecturer = findViewById(R.id.lstv_Lecturer);
         lv_Lecturer.setOnItemClickListener(this);
+        checkNetwork = new CheckNetwork();
+
+        linearLayout = new LinearLayout(this);
+        linearLayout.setGravity(Gravity.CENTER);
+        connectStatus = new TextView(this);
+        connectStatus.setText("No internet access !");
+
+        linearLayout.addView(connectStatus);
+
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.MATCH_PARENT);
+
+        if(!checkNetwork.checkNetworkState(this)){
+            isAdd = true;
+            addContentView(linearLayout,layoutParams);
+        }
+
+        if(checkNetwork.checkNetworkState(this) && isAdd){
+            linearLayout.recomputeViewAttributes(connectStatus);
+        }
 
         render();
-
     }
 
     @Override
