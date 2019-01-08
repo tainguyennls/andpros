@@ -30,13 +30,13 @@
         <activity
             android:name=".views.LecturerDetailActivity"
             android:parentActivityName=".views.LecturerActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".views.GroupActivity"
             android:parentActivityName=".views.NavActivity" />
         <activity
             android:name=".views.GroupDetailActivity"
-            android:parentActivityName=".views.GroupActivity"/>
+            android:parentActivityName=".views.GroupActivity" />
         <activity
             android:name=".views.TeachActivity"
             android:parentActivityName=".views.NavActivity" />
@@ -48,7 +48,10 @@
             android:parentActivityName=".views.NavActivity" />
         <activity
             android:name=".views.JobDetailActivity"
-            android:parentActivityName=".views.JobActivity"/>
+            android:parentActivityName=".views.JobActivity" />
+        <activity
+            android:name=".LoginActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
     </application>
 
 </manifest>

@@ -32,7 +32,6 @@
                android:textSize="20dp"
                android:textColor="@color/textWhite"
                android:layout_gravity="center"
-               android:text="Nguyen Van A"
                android:textStyle="bold"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content" />
@@ -108,7 +107,6 @@
 
            <LinearLayout
                android:paddingTop="10dp"
-               android:paddingBottom="10dp"
                android:layout_width="wrap_content"
                android:layout_height="match_parent">
                <TextView
@@ -119,9 +117,7 @@
            </LinearLayout>
 
            <LinearLayout
-               android:paddingTop="10dp"
-               android:paddingBottom="10dp"
-               android:layout_width="wrap_content"
+               android:layout_width="match_parent"
                android:layout_height="match_parent">
                <TextView
                    android:id="@+id/htmlListShow"

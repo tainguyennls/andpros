@@ -1,10 +1,6 @@
 package com.example.nguyenhuutai.studentapp.views;
 
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.GradientDrawable;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Html;
@@ -14,7 +10,6 @@ import android.widget.TextView;
 
 
 import com.example.nguyenhuutai.studentapp.R;
-import com.example.nguyenhuutai.studentapp.adapters.ItemAdapter;
 import com.example.nguyenhuutai.studentapp.models.LecturerModel;
 import com.example.nguyenhuutai.studentapp.models.StringItem;
 import com.example.nguyenhuutai.studentapp.models.UlTagHandler;
@@ -35,7 +30,6 @@ public class LecturerDetailActivity extends AppCompatActivity {
     private int id;
     private DatabaseReference df;
     private List<StringItem> topics;
-    private ItemAdapter itemTopics;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
