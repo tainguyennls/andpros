@@ -1,26 +1,22 @@
 package com.example.nguyenhuutai.studentapp.views;
 
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Gravity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.TextView;
 
 import com.example.nguyenhuutai.studentapp.R;
 import com.example.nguyenhuutai.studentapp.adapters.LecturerAdapter;
 import com.example.nguyenhuutai.studentapp.dao.Data;
 import com.example.nguyenhuutai.studentapp.interfaces.ILecturer;
 import com.example.nguyenhuutai.studentapp.models.CheckNetwork;
+import com.example.nguyenhuutai.studentapp.models.DialogShow;
+import com.example.nguyenhuutai.studentapp.models.ItemOffsetDecoration;
 import com.example.nguyenhuutai.studentapp.models.LecturerModel;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -29,17 +25,14 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LecturerActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
+public class LecturerActivity extends AppCompatActivity {
 
-    private ListView lv_Lecturer;
+    private RecyclerView recyclerView;
     private List<LecturerModel> lecturers;
     private LecturerAdapter listAdapter;
     private Data data;
     private CheckNetwork checkNetwork;
-    private TextView check;
-    private LinearLayout linearLayout;
-    private TextView connectStatus;
-    private boolean isAdd = false;
+    private DialogShow dialogShow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,46 +46,20 @@ public class LecturerActivity extends AppCompatActivity implements AdapterView.O
 
         data = new Data();
         lecturers = new ArrayList<>();
-        lv_Lecturer = findViewById(R.id.lstv_Lecturer);
-        lv_Lecturer.setOnItemClickListener(this);
+        recyclerView = findViewById(R.id.lstv_Lecturer);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        ItemOffsetDecoration itemDecoration = new ItemOffsetDecoration(1);
+        recyclerView.addItemDecoration(itemDecoration);
         checkNetwork = new CheckNetwork();
 
-        linearLayout = new LinearLayout(this);
-        linearLayout.setGravity(Gravity.CENTER);
-        connectStatus = new TextView(this);
-        connectStatus.setText("No internet access !");
-
-        linearLayout.addView(connectStatus);
-
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.MATCH_PARENT);
-
+        dialogShow = new DialogShow(this);
         if(!checkNetwork.checkNetworkState(this)){
-            isAdd = true;
-            addContentView(linearLayout,layoutParams);
-        }
-
-        if(checkNetwork.checkNetworkState(this) && isAdd){
-            linearLayout.recomputeViewAttributes(connectStatus);
+            dialogShow.showDialog();
         }
 
         render();
+
     }
-
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Intent  intent = new Intent(LecturerActivity.this,LecturerDetailActivity.class);
-        intent.putExtra("id_details",view.getId()+"");
-        intent.putExtra("name",lecturers.get(position).getName());
-        startActivity(intent);
-        overridePendingTransition(R.anim.slide_from_right,R.anim.slide_to_left);
-        //Toast.makeText(LecturerActivity.this,"Id : " + view.getId(),Toast.LENGTH_SHORT).show();
-    }
-
-
-    /**
-     *  Get all Lecturer in database
-     * @param iLecturer callback invoke
-     */
 
     public void getListOfLecturers(final ILecturer iLecturer){
 
@@ -115,17 +82,12 @@ public class LecturerActivity extends AppCompatActivity implements AdapterView.O
         data.moveToNode("lecturers").addListenerForSingleValueEvent(valueEventListener);
     }
 
-
-    /***
-     *  Render view
-     */
-
     public void render(){
         getListOfLecturers(new ILecturer() {
             @Override
             public void call(List<LecturerModel> lecturerModels) {
-                listAdapter = new LecturerAdapter(LecturerActivity.this,R.id.lstv_Lecturer,lecturers);
-                lv_Lecturer.setAdapter(listAdapter);
+                listAdapter = new LecturerAdapter(lecturers);
+                recyclerView.setAdapter(listAdapter);
             }
         });
     }

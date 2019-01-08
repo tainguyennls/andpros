@@ -34,6 +34,7 @@ public class LecturerDetailActivity extends AppCompatActivity {
     private List<StringItem> topics;
     private ItemAdapter itemTopics;
     private ListView lv_Topics;
+    private ActionBar actionBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,10 +54,8 @@ public class LecturerDetailActivity extends AppCompatActivity {
         Intent intent = getIntent();
 
         id = Integer.parseInt(intent.getStringExtra("id_details"));
-        String name = intent.getStringExtra("name");
 
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle(name);
+        actionBar = getSupportActionBar();
         actionBar.setHomeAsUpIndicator(R.drawable.ic_chevron_left_black_24dp);
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#0274BD")));
 
@@ -147,6 +146,9 @@ public class LecturerDetailActivity extends AppCompatActivity {
                txtNamsinh.setText(lecturerModels.getBorn());
                txtChucvu.setText(lecturerModels.getPosition());
                txtEmail.setText(lecturerModels.getEmail());
+
+               actionBar.setTitle(txtName.getText());
+
 
                getTopicsById(new CallbackTopic() {
                    @Override
