@@ -1,10 +1,9 @@
-package com.example.nguyenhuutai.studentapp;
+package com.example.nguyenhuutai.studentapp.views;
 
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
@@ -16,6 +15,9 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+import com.example.nguyenhuutai.studentapp.R;
+
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -65,7 +67,10 @@ public class LoginActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         FirebaseUser firebaseUser = fa.getCurrentUser();
-        // do somethings
+       if(firebaseUser != null){
+           startActivity(new Intent(LoginActivity.this,LoginUserActivity.class));
+           overridePendingTransition(R.anim.slide_from_right,R.anim.slide_to_left);
+       }
     }
 
     public void signIn(){
@@ -74,7 +79,6 @@ public class LoginActivity extends AppCompatActivity {
                 @Override
                 public void onSuccess(AuthResult authResult) {
                     FirebaseUser user = fa.getCurrentUser();
-                    Log.e("BUGS",user.toString());
                     startActivity(new Intent(LoginActivity.this,LoginUserActivity.class));
                     overridePendingTransition(R.anim.slide_from_right,R.anim.slide_to_left);
                 }

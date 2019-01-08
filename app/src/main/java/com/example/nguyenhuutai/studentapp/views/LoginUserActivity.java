@@ -1,4 +1,4 @@
-package com.example.nguyenhuutai.studentapp;
+package com.example.nguyenhuutai.studentapp.views;
 
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -20,6 +20,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import com.example.nguyenhuutai.studentapp.R;
 
 import java.util.Date;
 

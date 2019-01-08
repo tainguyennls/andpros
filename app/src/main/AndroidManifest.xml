@@ -50,10 +50,10 @@
             android:name=".views.JobDetailActivity"
             android:parentActivityName=".views.JobActivity" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".views.LoginActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".LoginUserActivity"
+            android:name=".views.LoginUserActivity"
             android:parentActivityName=".views.NavActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
     </application>

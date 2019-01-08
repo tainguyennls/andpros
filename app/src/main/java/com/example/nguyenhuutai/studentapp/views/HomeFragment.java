@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
-import com.example.nguyenhuutai.studentapp.LoginActivity;
 import com.example.nguyenhuutai.studentapp.R;
 
 

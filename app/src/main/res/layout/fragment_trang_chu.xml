@@ -164,32 +164,7 @@
                         android:layout_height="wrap_content" />
                     <TextView
                         android:textStyle="bold"
-                        android:text="@string/day_hoc"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/k"
-                    android:paddingTop="30dp"
-                    android:paddingBottom="30dp"
-                    android:layout_marginTop="1dp"
-                    android:layout_marginLeft="1dp"
-                    android:layout_marginBottom="1dp"
-                    android:layout_marginRight="2dp"
-                    android:gravity="center"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:background="@color/back_item"
-                    android:orientation="vertical"
-                    android:layout_height="match_parent">
-                    <ImageView
-                        android:src="@mipmap/ic_recruiment"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                    <TextView
-                        android:textStyle="bold"
-                        android:text="@string/viec_lam"
+                        android:text="Đăng tin"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                 </LinearLayout>
