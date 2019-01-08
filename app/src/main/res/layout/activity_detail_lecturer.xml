@@ -9,27 +9,14 @@
     android:layout_height="match_parent"
     tools:context=".views.LecturerDetailActivity">
    <LinearLayout
+       android:background="@drawable/gradient_background"
        android:orientation="vertical"
        android:layout_width="match_parent"
        android:layout_height="wrap_content">
-       <FrameLayout
-           android:background="@drawable/user_profile"
+       <LinearLayout
+           android:orientation="vertical"
            android:layout_width="match_parent"
            android:layout_height="250dp">
-           <RelativeLayout
-               android:layout_marginTop="130dp"
-               android:paddingBottom="120dp"
-               android:background="#fff"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content">
-               <TextView
-                   android:padding="10dp"
-                   android:layout_centerInParent="true"
-                   android:background="#ea4331"
-                   android:text="Nguyen Van A"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content" />
-           </RelativeLayout>
 
            <de.hdodenhof.circleimageview.CircleImageView
                xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -40,7 +27,18 @@
                app:civ_border_color="#fff"
                app:civ_border_width="3dp" />
 
-       </FrameLayout>
+           <TextView
+               android:id="@+id/logo_name"
+               android:layout_marginTop="5dp"
+               android:textSize="20dp"
+               android:textColor="@color/textWhite"
+               android:layout_gravity="center"
+               android:text="Nguyen Van A"
+               android:textStyle="bold"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+
+       </LinearLayout>
 
        <LinearLayout
            android:layout_marginTop="10dp"
@@ -121,12 +119,17 @@
                    android:text="Đề tài nghiên cứu:" />
            </LinearLayout>
 
-           <ListView
-               android:id="@+id/lv_topics"
-               android:divider="@null"
-               android:clickable="false"
+           <LinearLayout
+               android:paddingTop="10dp"
+               android:paddingBottom="10dp"
                android:layout_width="wrap_content"
-               android:layout_height="match_parent" />
+               android:layout_height="match_parent">
+               <TextView
+                   android:id="@+id/htmlListShow"
+                   android:textStyle="bold"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content" />
+           </LinearLayout>
        </LinearLayout>
    </LinearLayout>
 </LinearLayout>

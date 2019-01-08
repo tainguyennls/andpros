@@ -3,11 +3,11 @@ package com.example.nguyenhuutai.studentapp.views;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.GradientDrawable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 
@@ -28,13 +28,11 @@ import java.util.List;
 public class LecturerDetailActivity extends AppCompatActivity {
 
     private ImageView imageView;
-    private TextView txtName,txtNamsinh,txtChucvu,txtEmail;
+    private TextView txtName, txtNamSinh, txtChucVu,txtEmail,txtLogoName;
     private int id;
     private DatabaseReference df;
     private List<StringItem> topics;
     private ItemAdapter itemTopics;
-    private ListView lv_Topics;
-    private ActionBar actionBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,19 +44,13 @@ public class LecturerDetailActivity extends AppCompatActivity {
 
         imageView = findViewById(R.id.img_details);
         txtName = findViewById(R.id.name);
-        txtNamsinh  = findViewById(R.id.dat);
-        txtChucvu = findViewById(R.id.pos);
+        txtNamSinh = findViewById(R.id.dat);
+        txtChucVu = findViewById(R.id.pos);
         txtEmail = findViewById(R.id.email);
-        lv_Topics = findViewById(R.id.lv_topics);
+        txtLogoName= findViewById(R.id.logo_name);
 
         Intent intent = getIntent();
-
         id = Integer.parseInt(intent.getStringExtra("id_details"));
-
-        actionBar = getSupportActionBar();
-        actionBar.setHomeAsUpIndicator(R.drawable.ic_chevron_left_black_24dp);
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#0274BD")));
-
 
         render();
 
@@ -129,11 +121,6 @@ public class LecturerDetailActivity extends AppCompatActivity {
         df.addListenerForSingleValueEvent(valueEventListener);
     }
 
-
-    /***
-     *  Render view
-     */
-
     public void render(){
        getLecturerById(new OnCallback() {
 
@@ -143,23 +130,22 @@ public class LecturerDetailActivity extends AppCompatActivity {
                lecturerModels.setImageBitMap(imageView,lecturerModels.getImage());
 
                txtName.setText(lecturerModels.getName());
-               txtNamsinh.setText(lecturerModels.getBorn());
-               txtChucvu.setText(lecturerModels.getPosition());
+               txtNamSinh.setText(lecturerModels.getBorn());
+               txtChucVu.setText(lecturerModels.getPosition());
                txtEmail.setText(lecturerModels.getEmail());
+               txtLogoName.setText(lecturerModels.getName());
 
-               actionBar.setTitle(txtName.getText());
 
-
-               getTopicsById(new CallbackTopic() {
-                   @Override
-                   public void callback(List<StringItem> topics) {
-                       lecturerModels.setTopic(topics);
-                       itemTopics = new ItemAdapter(LecturerDetailActivity.this,R.id.lv_topics,topics);
-                       lv_Topics.setAdapter(itemTopics);
-                       lv_Topics.setScrollContainer(false);
-                       lv_Topics.setClickable(false);
-                   }
-               });
+//               getTopicsById(new CallbackTopic() {
+//                   @Override
+//                   public void callback(List<StringItem> topics) {
+//                       lecturerModels.setTopic(topics);
+//                       itemTopics = new ItemAdapter(LecturerDetailActivity.this,R.id.lv_topics,topics);
+//                       lv_Topics.setAdapter(itemTopics);
+//                       lv_Topics.setScrollContainer(false);
+//                       lv_Topics.setClickable(false);
+//                   }
+//               });
            }
        });
     }
