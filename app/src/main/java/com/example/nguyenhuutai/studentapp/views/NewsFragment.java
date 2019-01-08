@@ -1,27 +1,22 @@
 package com.example.nguyenhuutai.studentapp.views;
 
-import android.app.ActionBar;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 
 import com.example.nguyenhuutai.studentapp.R;
 import com.example.nguyenhuutai.studentapp.adapters.NewsAdapter;
+import com.example.nguyenhuutai.studentapp.dao.Data;
 import com.example.nguyenhuutai.studentapp.interfaces.INews;
 import com.example.nguyenhuutai.studentapp.models.ItemOffsetDecoration;
 import com.example.nguyenhuutai.studentapp.models.NewsModel;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -30,21 +25,13 @@ import java.util.List;
 
 public class NewsFragment extends Fragment {
 
+    private Data data;
     private List<NewsModel> newsModels;
     private NewsAdapter newsAdapter;
     private RecyclerView recyclerView;
-    private DatabaseReference df;
-
 
     public NewsFragment() {
         // Required empty public constructor
-    }
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-
     }
 
     @Override
@@ -52,14 +39,7 @@ public class NewsFragment extends Fragment {
 
         View v = inflater.inflate(R.layout.fragment_bang_tin, container, false);
 
-        Toolbar toolbar = v.findViewById(R.id.toolbar);
-
-        AppCompatActivity activity = (AppCompatActivity) getActivity();
-
-        activity.setSupportActionBar(toolbar);
-        activity.getSupportActionBar().setDisplayShowHomeEnabled(true);
-
-        df = FirebaseDatabase.getInstance().getReference().child("news");
+        data = new Data();
         newsModels = new ArrayList<>();
         recyclerView = v.findViewById(R.id.lvNews);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -69,7 +49,7 @@ public class NewsFragment extends Fragment {
         return v;
     }
 
-    public void getDoanHoi(final INews iNews){
+    public void getListOfNews(final INews iNews){
 
         ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
@@ -86,11 +66,11 @@ public class NewsFragment extends Fragment {
 
             }
         };
-        df.addListenerForSingleValueEvent(valueEventListener);
+        data.moveToNode("news").addListenerForSingleValueEvent(valueEventListener);
     }
 
     public void render(){
-        getDoanHoi(new INews() {
+        getListOfNews(new INews() {
             @Override
             public void call(List<NewsModel> newsModels) {
                 newsAdapter = new NewsAdapter(newsModels);
