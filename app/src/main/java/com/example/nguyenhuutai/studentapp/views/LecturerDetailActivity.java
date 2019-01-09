@@ -5,18 +5,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 
 import com.example.nguyenhuutai.studentapp.R;
+import com.example.nguyenhuutai.studentapp.dao.Data;
 import com.example.nguyenhuutai.studentapp.models.LecturerModel;
 import com.example.nguyenhuutai.studentapp.models.StringItem;
 import com.example.nguyenhuutai.studentapp.models.UlTagHandler;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -25,10 +25,17 @@ import java.util.List;
 
 public class LecturerDetailActivity extends AppCompatActivity {
 
-    private ImageView imageView;
-    private TextView txtName, txtNamSinh, txtChucVu,txtEmail,txtLogoName,htmList;
-    private int id;
-    private DatabaseReference df;
+    private String uid;
+    private ImageView logo;
+    private TextView txtName;
+    private TextView txtNamSinh;
+    private TextView txtChucVu;
+    private TextView txtEmail;
+    private TextView txtLogoName;
+    private TextView htmList;
+    private ImageView prev;
+
+    private Data data;
     private List<StringItem> topics;
 
     @Override
@@ -36,21 +43,29 @@ public class LecturerDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_lecturer);
 
-        df = FirebaseDatabase.getInstance().getReference();
+        data = new Data();
         topics = new ArrayList<>();
 
-        imageView = findViewById(R.id.img_details);
+        logo = findViewById(R.id.logo);
         txtName = findViewById(R.id.name);
         txtNamSinh = findViewById(R.id.dat);
         txtChucVu = findViewById(R.id.pos);
         txtEmail = findViewById(R.id.email);
-        txtLogoName= findViewById(R.id.logo_name);
-        htmList = findViewById(R.id.htmlListShow);
+        txtLogoName = findViewById(R.id.logo_name);
+        htmList = findViewById(R.id.htmList);
+        prev = findViewById(R.id.prev);
 
         Intent intent = getIntent();
-        id = Integer.parseInt(intent.getStringExtra("id_details"));
+        uid = intent.getStringExtra("uid");
 
         render();
+
+        prev.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
     }
 
@@ -83,7 +98,7 @@ public class LecturerDetailActivity extends AppCompatActivity {
         ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                DataSnapshot snapshot  = dataSnapshot.child("lecturers").child(id+"");
+                DataSnapshot snapshot  = dataSnapshot.child(uid);
                 LecturerModel lecturerModel = snapshot.getValue(LecturerModel.class);
                 onCallback.callback(lecturerModel);
 
@@ -94,7 +109,7 @@ public class LecturerDetailActivity extends AppCompatActivity {
 
             }
         };
-        df.addListenerForSingleValueEvent(valueEventListener);
+        data.moveToNode("lecturers").addListenerForSingleValueEvent(valueEventListener);
     }
 
     public void getTopicsById(final CallbackTopic callback){
@@ -102,7 +117,7 @@ public class LecturerDetailActivity extends AppCompatActivity {
         ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                DataSnapshot snapshot  = dataSnapshot.child("lecturers").child(id+"").child("topics");
+                DataSnapshot snapshot  = dataSnapshot.child(uid).child("topics");
                 for (DataSnapshot sh : snapshot.getChildren()){
                     StringItem topic = sh.getValue(StringItem.class);
                     topics.add(topic);
@@ -116,7 +131,7 @@ public class LecturerDetailActivity extends AppCompatActivity {
 
             }
         };
-        df.addListenerForSingleValueEvent(valueEventListener);
+        data.moveToNode("lecturers").addListenerForSingleValueEvent(valueEventListener);
     }
 
     public void render(){
@@ -125,14 +140,13 @@ public class LecturerDetailActivity extends AppCompatActivity {
            @Override
            public void callback(final LecturerModel lecturerModels) {
 
-               lecturerModels.setImageBitMap(imageView,lecturerModels.getImage());
+               lecturerModels.setImageBitMap(logo,lecturerModels.getImage());
 
                txtName.setText(lecturerModels.getName());
                txtNamSinh.setText(lecturerModels.getBorn());
                txtChucVu.setText(lecturerModels.getPosition());
                txtEmail.setText(lecturerModels.getEmail());
                txtLogoName.setText(lecturerModels.getName());
-
 
                getTopicsById(new CallbackTopic() {
                    @Override

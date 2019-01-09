@@ -4,6 +4,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Html;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -33,6 +34,7 @@ public class LoginUserActivity extends AppCompatActivity implements ValueEventLi
     private Date date;
     private FirebaseAuth fa;
     private DatabaseReference df;
+    private DatabaseReference pos;
     private Button btnPost;
     private EditText editText;
     private LecturerModel lecturerModel;
@@ -54,6 +56,7 @@ public class LoginUserActivity extends AppCompatActivity implements ValueEventLi
 
         txtChange.setText(Html.fromHtml("<u> Sửa thông tin </u>"));
         df = FirebaseDatabase.getInstance().getReference("lecturers").child(user.getUid()+"");
+        pos = FirebaseDatabase.getInstance().getReference("news");
         df.addValueEventListener(this);
 
         btnPost.setOnClickListener(new View.OnClickListener() {
@@ -80,7 +83,7 @@ public class LoginUserActivity extends AppCompatActivity implements ValueEventLi
 
     @Override
     public void onCancelled(@NonNull DatabaseError databaseError) {
-
+        Toast.makeText(this,"Error",Toast.LENGTH_SHORT).show();
     }
 
     public void uploadData(){
@@ -92,6 +95,6 @@ public class LoginUserActivity extends AppCompatActivity implements ValueEventLi
         newsModel.setUid(user.getUid());
         newsModel.setTime(date.getTime() +"." + date.getDay() + "/" + date.getMonth() + "/" + date.getYear());
 
-        df.child("news").child(newsModel.toString()).setValue(newsModel);
+        pos.child(newsModel.getTime()).setValue(newsModel);
     }
 }

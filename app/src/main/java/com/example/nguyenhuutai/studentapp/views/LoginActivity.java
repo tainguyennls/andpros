@@ -78,7 +78,6 @@ public class LoginActivity extends AppCompatActivity {
             fa.signInWithEmailAndPassword(email,pass).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                 @Override
                 public void onSuccess(AuthResult authResult) {
-                    FirebaseUser user = fa.getCurrentUser();
                     startActivity(new Intent(LoginActivity.this,LoginUserActivity.class));
                     overridePendingTransition(R.anim.slide_from_right,R.anim.slide_to_left);
                 }

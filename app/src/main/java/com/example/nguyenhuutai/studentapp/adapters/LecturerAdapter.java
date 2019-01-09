@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.nguyenhuutai.studentapp.R;
@@ -21,28 +22,19 @@ public class LecturerAdapter extends RecyclerView.Adapter<LecturerAdapter.ViewHo
 
     public LecturerAdapter(List<LecturerModel> objects) {
         this.lecturerModels = objects;
-
     }
 
     public class ViewHolder extends  RecyclerView.ViewHolder{
-        ImageView logo,trans;
+        ImageView logo;
         TextView user,email;
+        LinearLayout llUid;
 
         public ViewHolder(View itemView) {
             super(itemView);
             logo = itemView.findViewById(R.id.logo);
-            user = itemView.findViewById(R.id.txtNameOfLecturer);
+            user = itemView.findViewById(R.id.txtName);
             email = itemView.findViewById(R.id.txtEmail);
-            trans = itemView.findViewById(R.id.trans);
-
-            trans.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(v.getContext(),LecturerDetailActivity.class);
-                    intent.putExtra("id_details",v.getId()+"");
-                    v.getContext().startActivity(intent);
-                }
-            });
+            llUid = itemView.findViewById(R.id.uid);
         }
     }
 
@@ -54,15 +46,22 @@ public class LecturerAdapter extends RecyclerView.Adapter<LecturerAdapter.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(ViewHolder viewHolder,final int i) {
 
         LecturerModel lecturerModel = lecturerModels.get(i);
 
         lecturerModel.setImageBitMap(viewHolder.logo,lecturerModel.getImage());
         viewHolder.user.setText(lecturerModel.getName());
         viewHolder.email.setText(lecturerModel.getEmail());
-        viewHolder.trans.setId(lecturerModel.getId());
 
+        viewHolder.llUid.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(),LecturerDetailActivity.class);
+                intent.putExtra("uid",lecturerModels.get(i).getId());
+                v.getContext().startActivity(intent);
+            }
+        });
     }
 
     @Override
