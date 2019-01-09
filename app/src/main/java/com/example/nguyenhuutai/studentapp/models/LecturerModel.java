@@ -14,7 +14,7 @@ import java.util.List;
 
 public class LecturerModel{
 
-    private int id;
+    private java.lang.String id;
     private java.lang.String name;
     private java.lang.String email;
     private java.lang.String born;
@@ -33,11 +33,11 @@ public class LecturerModel{
         storageRef = storage.getReference().child("images");
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 

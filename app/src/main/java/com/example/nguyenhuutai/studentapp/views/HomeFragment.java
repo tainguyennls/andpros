@@ -17,6 +17,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     private LinearLayout llDK;
     private LinearLayout llVL;
     private LinearLayout llDH;
+    private LinearLayout llLG;
 
 
     public HomeFragment() {
@@ -33,11 +34,13 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         llDK = v.findViewById(R.id.dk);
         llVL = v.findViewById(R.id.vl);
         llDH = v.findViewById(R.id.ts);
+        llLG = v.findViewById(R.id.lg);
 
         llGV.setOnClickListener(this);
         llDK.setOnClickListener(this);
         llVL.setOnClickListener(this);
         llDH.setOnClickListener(this);
+        llLG.setOnClickListener(this);
 
         return v;
     }
@@ -63,6 +66,11 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
             case R.id.ts:
                 startActivity(new Intent(getActivity(),TeachActivity.class));
+                getActivity().overridePendingTransition(R.anim.slide_from_right,R.anim.slide_to_left);
+                break;
+
+            case R.id.lg:
+                startActivity(new Intent(getActivity(),LoginActivity.class));
                 getActivity().overridePendingTransition(R.anim.slide_from_right,R.anim.slide_to_left);
                 break;
 

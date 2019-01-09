@@ -1,7 +1,6 @@
 package com.example.nguyenhuutai.studentapp.adapters;
 
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,8 +45,6 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
         viewHolder.user.setText(newsModel.getUser());
         viewHolder.time.setText(newsModel.getTime());
         viewHolder.content.setText(newsModel.getContent());
-
-        Log.e("BUGS",newsModel.getTime());
     }
 
     @Override

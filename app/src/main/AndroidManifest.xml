@@ -7,9 +7,8 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/student_hub_app"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
@@ -30,13 +29,14 @@
         <activity android:name=".views.MainActivity" />
         <activity
             android:name=".views.LecturerDetailActivity"
-            android:parentActivityName=".views.LecturerActivity"/>
+            android:parentActivityName=".views.LecturerActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".views.GroupActivity"
             android:parentActivityName=".views.NavActivity" />
         <activity
             android:name=".views.GroupDetailActivity"
-            android:parentActivityName=".views.GroupActivity"/>
+            android:parentActivityName=".views.GroupActivity" />
         <activity
             android:name=".views.TeachActivity"
             android:parentActivityName=".views.NavActivity" />
@@ -48,7 +48,14 @@
             android:parentActivityName=".views.NavActivity" />
         <activity
             android:name=".views.JobDetailActivity"
-            android:parentActivityName=".views.JobActivity"/>
+            android:parentActivityName=".views.JobActivity" />
+        <activity
+            android:name=".views.LoginActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".views.LoginUserActivity"
+            android:parentActivityName=".views.NavActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
     </application>
 
 </manifest>
