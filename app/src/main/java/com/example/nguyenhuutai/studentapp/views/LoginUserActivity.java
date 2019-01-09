@@ -1,10 +1,8 @@
 package com.example.nguyenhuutai.studentapp.views;
 
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Html;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,20 +22,20 @@ import com.google.firebase.database.ValueEventListener;
 
 import com.example.nguyenhuutai.studentapp.R;
 
+import java.text.DateFormat;
 import java.util.Date;
 
-public class LoginUserActivity extends AppCompatActivity implements ValueEventListener {
+public class LoginUserActivity extends AppCompatActivity{
 
-    private TextView txtName,txtChange;
-    private ImageView imgPersonal;
-    private FirebaseUser user ;
-    private Date date;
     private FirebaseAuth fa;
+    private FirebaseUser user ;
     private DatabaseReference df;
     private DatabaseReference pos;
     private Button btnPost;
     private EditText editText;
-    private LecturerModel lecturerModel;
+    private TextView txtName;
+    private TextView txtChange;
+    private ImageView imgPersonal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,9 +53,10 @@ public class LoginUserActivity extends AppCompatActivity implements ValueEventLi
 
 
         txtChange.setText(Html.fromHtml("<u> Sửa thông tin </u>"));
-        df = FirebaseDatabase.getInstance().getReference("lecturers").child(user.getUid()+"");
+        df = FirebaseDatabase.getInstance().getReference("lecturers");
         pos = FirebaseDatabase.getInstance().getReference("news");
-        df.addValueEventListener(this);
+
+        render();
 
         btnPost.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,27 +73,48 @@ public class LoginUserActivity extends AppCompatActivity implements ValueEventLi
 
     }
 
-    @Override
-    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-        lecturerModel = dataSnapshot.getValue(LecturerModel.class);
-        txtName.setText(lecturerModel.getName());
-        lecturerModel.setImageBitMap(imgPersonal,lecturerModel.getImage());
-    }
-
-    @Override
-    public void onCancelled(@NonNull DatabaseError databaseError) {
-        Toast.makeText(this,"Error",Toast.LENGTH_SHORT).show();
-    }
-
     public void uploadData(){
         NewsModel newsModel = new NewsModel();
-        date = new Date();
+        Date date = new Date();
+        String stringDate = DateFormat.getDateTimeInstance().format(date);
 
-        newsModel.setUser(lecturerModel.getName());
+        newsModel.setUser(txtName.getText().toString());
         newsModel.setContent(editText.getText().toString());
         newsModel.setUid(user.getUid());
-        newsModel.setTime(date.getTime() +"." + date.getDay() + "/" + date.getMonth() + "/" + date.getYear());
+        newsModel.setTime(stringDate);
 
-        pos.child(newsModel.getTime()).setValue(newsModel);
+        pos.child(pos.push().getKey()).setValue(newsModel);
+    }
+
+    public interface Call{
+        void call(LecturerModel lecturerModel);
+    }
+
+    public void getLecturerModel(final Call call){
+
+        ValueEventListener valueEventListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                DataSnapshot snapshot = dataSnapshot.child(user.getUid());
+                 LecturerModel lecturerModel = snapshot.getValue(LecturerModel.class);
+                 call.call(lecturerModel);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // catch error ...
+            }
+        };
+        df.addListenerForSingleValueEvent(valueEventListener);
+    }
+
+    public void render(){
+        getLecturerModel(new Call() {
+            @Override
+            public void call(LecturerModel lecturerModel) {
+                txtName.setText(lecturerModel.getName());
+                lecturerModel.setImageBitMap(imgPersonal,lecturerModel.getImage());
+            }
+        });
     }
 }

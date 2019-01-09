@@ -4,8 +4,8 @@ public class NewsModel {
 
     private String user;
     private String time;
-    private String content;
     private String uid;
+    private String content;
 
     public NewsModel(){
 
