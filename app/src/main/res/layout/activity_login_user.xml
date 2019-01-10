@@ -19,7 +19,7 @@
             android:paddingRight="30dp"
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="250dp">
+            android:layout_height="200dp">
 
             <de.hdodenhof.circleimageview.CircleImageView
                 xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -55,9 +55,27 @@
             android:layout_marginTop="10dp"
             android:orientation="vertical"
             android:background="#fff"
-            android:padding="30dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:paddingBottom="30dp"
+            android:paddingTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
+            <LinearLayout
+                android:paddingBottom="10dp"
+                android:gravity="right"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="0dp">
+                <Button
+                    android:text="Đăng"
+                    android:id="@+id/pos"
+                    android:textColor="@color/textWhite"
+                    android:background="@drawable/btn_round"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
 
             <LinearLayout
                 android:orientation="vertical"
@@ -65,6 +83,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
+                    android:paddingBottom="@dimen/padding_bound_items"
                     android:textStyle="bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -72,20 +91,10 @@
                 <EditText
                     android:id="@+id/content_pos"
                     android:maxLines="10"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"/>
-                <LinearLayout
+                    android:minLines="5"
+                    android:background="@drawable/background_edit_text"
                     android:layout_width="match_parent"
-                    android:layout_weight="1"
-                    android:layout_height="0dp">
-                    <Button
-                        android:text="Đăng"
-                        android:id="@+id/pos"
-                        android:textColor="@color/textWhite"
-                        android:background="@color/nav"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
+                    android:layout_height="match_parent"/>
             </LinearLayout>
         </LinearLayout>
 

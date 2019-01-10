@@ -6,11 +6,10 @@ import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.example.nguyenhuutai.studentapp.R;
-import com.example.nguyenhuutai.studentapp.models.JobModel;
 
 public class JobDetailActivity extends AppCompatActivity {
     private TextView txtHeader;
@@ -76,5 +75,23 @@ public class JobDetailActivity extends AppCompatActivity {
         txtDescript.setText(intent.getStringExtra("job_description"));
         txtBenefit.setText(intent.getStringExtra("job_benefit"));
 
+    }
+
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.slide_from_right,R.anim.slide_to_left);
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
+        super.onBackPressed();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        finish();
+        return super.onOptionsItemSelected(item);
     }
 }

@@ -12,7 +12,6 @@ import com.example.nguyenhuutai.studentapp.R;
 import com.example.nguyenhuutai.studentapp.adapters.NewsAdapter;
 import com.example.nguyenhuutai.studentapp.models.ItemOffsetDecoration;
 import com.example.nguyenhuutai.studentapp.models.NewsModel;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -23,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class NewsFragment extends Fragment implements ValueEventListener,ChildEventListener {
+public class NewsFragment extends Fragment implements ValueEventListener{
 
     private List<NewsModel> newsModels;
     private NewsAdapter newsAdapter;
@@ -50,38 +49,19 @@ public class NewsFragment extends Fragment implements ValueEventListener,ChildEv
 
         df = FirebaseDatabase.getInstance().getReference("news");
         df.addValueEventListener(this);
-        df.addChildEventListener(this);
+
 
         return v;
     }
 
     @Override
     public void onDataChange(DataSnapshot dataSnapshot) {
+        newsModels.clear();
         for (DataSnapshot sh : dataSnapshot.getChildren()){
             NewsModel newsModel = sh.getValue(NewsModel.class);
             newsModels.add(newsModel);
             newsAdapter.notifyDataSetChanged();
         }
-    }
-
-    @Override
-    public void onChildAdded(DataSnapshot dataSnapshot,String s) {
-
-    }
-
-    @Override
-    public void onChildChanged(DataSnapshot dataSnapshot,String s) {
-
-    }
-
-    @Override
-    public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-    }
-
-    @Override
-    public void onChildMoved(DataSnapshot dataSnapshot,String s) {
-
     }
 
     @Override
