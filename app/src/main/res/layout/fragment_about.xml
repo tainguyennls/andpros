@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AboutFragment">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:orientation="vertical"
+            android:background="#fff"
+            android:paddingTop="30dp"
+            android:paddingRight="30dp"
+            android:paddingLeft="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:gravity="right"
+                android:layout_marginBottom="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Button
+                    android:text="Cập nhật"
+                    android:id="@+id/update"
+                    android:textColor="@color/textWhite"
+                    android:background="@drawable/btn_round"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <Button
+                    android:text="Lưu"
+                    android:id="@+id/save"
+                    android:textColor="@color/textWhite"
+                    android:background="@drawable/btn_round"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:paddingBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Họ và tên: " />
+                <EditText
+                    android:id="@+id/name"
+                    android:background="@null"
+                    android:textSize="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:paddingBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Năm sinh: " />
+                <EditText
+                    android:id="@+id/dat"
+                    android:background="@null"
+                    android:textSize="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:paddingBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Chức vụ: " />
+                <EditText
+                    android:id="@+id/pos"
+                    android:background="@null"
+                    android:textSize="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Email: " />
+                <EditText
+                    android:id="@+id/email"
+                    android:background="@null"
+                    android:textSize="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+                <TextView
+                    android:textStyle="bold"
+                    android:background="@null"
+                    android:textSize="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Đề tài hướng dẫn:" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/htmList"
+                android:textSize="14dp"
+                android:paddingBottom="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

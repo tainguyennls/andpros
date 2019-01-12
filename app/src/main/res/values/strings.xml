@@ -55,4 +55,13 @@
 
     <string name="network_state">Hiện tại thiết bị của bạn vẫn chưa được kết nối với Internet. Hãy kết nối để có thể thực hiện nhiều thao tác hơn</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="spinner_ops">
+        <item>Bảng tin</item>
+        <item>Dạy học</item>
+        <item>Việc làm</item>
+    </string-array>
+
 </resources>

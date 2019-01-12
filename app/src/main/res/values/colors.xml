@@ -8,4 +8,5 @@
     <color name="nav">#0274BD</color>
     <color name="textWhite">#FFFFFF</color>
     <color name="back_item">#FFFFFF</color>
+    <color name="text">#000000</color>
 </resources>
