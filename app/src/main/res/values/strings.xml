@@ -61,7 +61,6 @@
     <string-array name="spinner_ops">
         <item>Bảng tin</item>
         <item>Dạy học</item>
-        <item>Việc làm</item>
     </string-array>
 
 </resources>

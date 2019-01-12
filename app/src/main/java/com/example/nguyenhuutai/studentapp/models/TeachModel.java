@@ -4,6 +4,7 @@ public class TeachModel {
     private String name;
     private String content;
     private String tag;
+    private String user;
 
     public TeachModel(){
 
@@ -31,5 +32,13 @@ public class TeachModel {
 
     public String getTag() {
         return tag;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    public String getUser() {
+        return user;
     }
 }

@@ -13,7 +13,7 @@ import com.example.nguyenhuutai.studentapp.R;
 
 public class TeachDetailActivity extends AppCompatActivity {
 
-    private TextView txtName,txtContent;
+    private TextView txtName,txtContent,txtUserPost;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +24,7 @@ public class TeachDetailActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String name = intent.getStringExtra("name");
         String content = intent.getStringExtra("content");
+        String user = intent.getStringExtra("user");
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle(name);
@@ -32,9 +33,11 @@ public class TeachDetailActivity extends AppCompatActivity {
 
         txtName = findViewById(R.id.title_dis);
         txtContent =  findViewById(R.id.content_d);
+        txtUserPost = findViewById(R.id.user_post);
 
         txtName.setText(name);
         txtContent.setText(content);
+        txtUserPost.setText(user);
     }
 
     @Override

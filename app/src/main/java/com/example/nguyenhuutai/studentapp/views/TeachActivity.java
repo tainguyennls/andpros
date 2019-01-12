@@ -54,6 +54,7 @@ public class TeachActivity extends AppCompatActivity implements AdapterView.OnIt
         Intent intent =  new Intent(TeachActivity.this,TeachDetailActivity.class);
         intent.putExtra("name", teachModels.get(position).getName());
         intent.putExtra("content", teachModels.get(position).getContent());
+        intent.putExtra("user",teachModels.get(position).getUser());
         startActivity(intent);
         overridePendingTransition(R.anim.slide_from_right,R.anim.slide_to_left);
     }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -39,6 +39,24 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/options"
+            android:orientation="vertical"
+            android:paddingBottom="10dp"
+            android:visibility="visible"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="Tiêu đề: "
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:id="@+id/hear_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
             android:orientation="vertical"
             android:paddingBottom="10dp"
             android:layout_width="match_parent"
@@ -51,9 +69,6 @@
                 android:text="Nội dung: " />
             <EditText
                 android:id="@+id/content_pos"
-                android:maxLines="10"
-                android:minLines="5"
-                android:background="@drawable/background_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
         </LinearLayout>
@@ -80,4 +95,4 @@
                 android:layout_height="wrap_content" />
         </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+</ScrollView>
