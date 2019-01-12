@@ -1,3 +1,3 @@
 # StudentApp
-- First project with AndroidStudio
+- First project with Android
 - Firebase intergrated
